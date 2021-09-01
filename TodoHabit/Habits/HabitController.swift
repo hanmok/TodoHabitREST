@@ -193,7 +193,7 @@ extension HabitController: AddHabitDelegate {
         let newHabit = Habit(context: self.context)
 //        newHabit.createdAt = Date()
         newHabit.goalPeriod = Int64(goal)
-        newHabit.onDates = dates
+//        newHabit.onDates = dates
         newHabit.title = title
         
         fetchHabits()

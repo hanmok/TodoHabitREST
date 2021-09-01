@@ -1,18 +1,42 @@
 //
-//  Habit.swift
-//  TodoHabit
+//import UIKit
 //
-//  Created by Mac mini on 2021/08/25.
+//struct Habit2 {
+//    let title: String // required initial Input
+//    let onDates: [Int] = [1,2,3,4,5] // required initial Input
+//    let colorString: String // color: UIColor required initial Input
+//    
+//    let goalPeriod: Int? // startDate, endDate. could be infinite
 //
-//
-//import Foundation
-//
-//struct Habit {
-//    let title: String
-//    let onDate: [Int]
-////    var durationInSec: Int? = 0
-//    var goalPeriod: Int? = 100
-//    let createdAt: Date = Date() // today
+//    
+//    let alarm: HabitAlarm?
+//    let habitCompletionHistory: HabitCompletionHistory
+//    let habitDate: HabitDate?
+//    let habitGoal: HabitGoal?
+//    let habitTime: HabitTime?
 //}
 //
+//struct HabitAlarm {
+//    let isAlarmOn: Bool? = true
+//    let alarmAt: Date?
+//}
 //
+//struct HabitCompletionHistory {
+//    let doneDates: [Int]
+//    let yearMonth: Date
+//}
+//
+//struct HabitDate {
+//    let endDate: String
+//    let startDate: String
+//}
+//
+//struct HabitGoal {
+//    let goalRep: Int?
+//    let goalTime: Int?
+//}
+//
+//struct HabitTime {
+//    let startTime: String?
+//    let endTime: String?
+//}

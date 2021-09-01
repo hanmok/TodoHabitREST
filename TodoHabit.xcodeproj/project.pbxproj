@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A9418AE26DD756300AE6A86 /* CustomClassValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9418AD26DD756300AE6A86 /* CustomClassValueTransformer.swift */; };
+		9A9418B026DFBF4E00AE6A86 /* NegativeHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9418AF26DFBF4E00AE6A86 /* NegativeHabit.swift */; };
 		9AD57C7126D827FE00E08812 /* CalenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD57C7026D827FE00E08812 /* CalenderController.swift */; };
 		9AD57C7326D8280D00E08812 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD57C7226D8280D00E08812 /* MonthView.swift */; };
 		9AD57C7526D8281E00E08812 /* WeekdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD57C7426D8281E00E08812 /* WeekdaysView.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		5525BE495496875C4F915E8D /* Pods-TodoHabit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoHabit.debug.xcconfig"; path = "Target Support Files/Pods-TodoHabit/Pods-TodoHabit.debug.xcconfig"; sourceTree = "<group>"; };
 		9A9418AD26DD756300AE6A86 /* CustomClassValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClassValueTransformer.swift; sourceTree = "<group>"; };
+		9A9418AF26DFBF4E00AE6A86 /* NegativeHabit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeHabit.swift; sourceTree = "<group>"; };
 		9AD57C7026D827FE00E08812 /* CalenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderController.swift; sourceTree = "<group>"; };
 		9AD57C7226D8280D00E08812 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		9AD57C7426D8281E00E08812 /* WeekdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaysView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				9ADD167126D694B5001E736C /* Todo.swift */,
 				9ADD166926D68F04001E736C /* Habit.swift */,
 				9A9418AD26DD756300AE6A86 /* CustomClassValueTransformer.swift */,
+				9A9418AF26DFBF4E00AE6A86 /* NegativeHabit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				9AD57CA626D93CB500E08812 /* NegativeMainController.swift in Sources */,
 				9ADD164B26D68790001E736C /* ViewController.swift in Sources */,
 				9ADD166026D688FE001E736C /* HabitController.swift in Sources */,
+				9A9418B026DFBF4E00AE6A86 /* NegativeHabit.swift in Sources */,
 				9ADD165E26D68845001E736C /* MainTabController.swift in Sources */,
 				9ADD166C26D68F0B001E736C /* HabitViewModel.swift in Sources */,
 				9ADD166226D68927001E736C /* TodoController.swift in Sources */,

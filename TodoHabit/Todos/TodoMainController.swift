@@ -121,7 +121,7 @@ extension TodoMainController : AddTodoViewControllerDelegate {
     
     func addTodo(title: String) {
         let newTodo = Todo(context: self.context)
-        newTodo.date = Date()
+        newTodo.onDate = Date()
         newTodo.isDone = false
         newTodo.title = title
         
