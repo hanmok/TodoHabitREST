@@ -20,6 +20,7 @@
 //
 //    let todoAlarm: TodoAlarm?
 //    let todoTime: TodoTime?
+//    let habitGoal: TodoGoal?
 //}
 //
 //struct TodoAlarm {
@@ -31,3 +32,10 @@
 //    let startTime: Date
 //    let endTime: Date
 //}
+
+//struct TodoGoal {
+//    let goalRep: Int?
+//    let goalTime: Int?
+//}
+
+//let habitGoal: TodoGoal?
