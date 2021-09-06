@@ -6,12 +6,9 @@
 //
 
 import UIKit
+import UIColor_Hex_Swift
 
 class CustomButton: UIButton {
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//
-//    }
     
     init(with title: String) {
         super.init(frame: .zero)
@@ -28,4 +25,37 @@ class CustomButton: UIButton {
     }
     
     
+}
+
+
+class ColorButton: UIButton {
+    init(hexcolor: String, tagInt: Int) {
+        super.init(frame: .zero)
+
+        
+        backgroundColor = UIColor(hexcolor)
+        tag = tagInt
+//        self.makeCornerRadius(circle: true)
+//        layer.cornerRadius = self.frame.height / 2
+        layer.cornerRadius = 15
+//        layer.cornerRadius = 15
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+class CustomLabel: UILabel {
+    init(textColor: UIColor = .black, text: String, alignment: NSTextAlignment = .left) {
+        super.init(frame: .zero)
+        self.textColor = textColor
+        self.text = text
+        self.textAlignment = alignment
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

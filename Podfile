@@ -5,7 +5,8 @@ target 'TodoHabit' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-	pod 'FSCalendar'
   # Pods for TodoHabit
+	pod 'FSCalendar'
+	pod 'UIColor_Hex_Swift', '~> 5.1.7'
 
 end

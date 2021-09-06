@@ -22,25 +22,24 @@ class AddHabitController: UIViewController {
         return label
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "습관 이름 :"
-        return label
-    }()
+    
+    private let titleLabel = CustomLabel(text: "습관 이름 :")
+//    private let titleLabel: CustomLabel = {
+//        let label = CustomLabel(text: "습관 이름 :")
+////        label.backgroundColor = .cyan
+//        return label
+//    }()
     
     private let titleTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "습관 이름을 입력해주세요"
-//        tf.autocorrectionType =
         tf.autocorrectionType = .no
+//        tf.backgroundColor = .magenta
         return tf
     }()
     
-    private let onDateLabel: UILabel = {
-        let label = UILabel()
-        label.text = "실행 요일 :"
-        return label
-    }()
+    
+    private let onDateLabel = CustomLabel(text: "요일 선택 : ")
     
     
     
@@ -49,45 +48,154 @@ class AddHabitController: UIViewController {
     private let everyday = CustomButton(with: "매일")
     private let selection = CustomButton(with: "선택")
     
-//    private let weekDays : CustomButton = {
-//        let button = CustomButton(with: "주중")
-//        button.makeCornerRadius(circle: false)
-//        button.backgroundColor = UIColor(white: 0.7, alpha: 0.3)
-//        return button
-//    }()
-
-//    private let mon = CustomButton(with: "mon")
-//    private let tue = CustomButton(with: "tue")
-//    private let wed = CustomButton(with: "wed")
-//    private let thu = CustomButton(with: "thu")
-//    private let fri = CustomButton(with: "fri")
-//    private let sat = CustomButton(with: "sat")
-//    private let sun = CustomButton(with: "sun")
     
+    private let mon = CustomButton(with: "월")
+    private let tue = CustomButton(with: "화")
+    private let wed = CustomButton(with: "수")
+    private let thu = CustomButton(with: "목")
+    private let fri = CustomButton(with: "금")
+    private let sat = CustomButton(with: "토")
+    private let sun = CustomButton(with: "일")
     
+    private let colorLabel = CustomLabel(text: "색상")
     
-    private let goalPeriodLabel: UILabel = {
-        let label = UILabel()
-        label.text = "목표 기간 :"
-        return label
+    private lazy var color0 : ColorButton = {
+        let button = ColorButton(hexcolor: "#FF0000", tagInt: 0)
+        button.layer.cornerRadius = 15
+        return button
     }()
+    
+    private let color1 = ColorButton(hexcolor: "#00FF00", tagInt: 1)
+    private let color2 = ColorButton(hexcolor: "#0000FF", tagInt: 2)
+    private let color3 = ColorButton(hexcolor: "#FFFF00", tagInt: 3)
+    private let color4 = ColorButton(hexcolor: "#FF00FF", tagInt: 4)
+    private lazy var color5 = ColorButton(hexcolor: "#00FFFF", tagInt: 5)
+    
+    
+    private let goalPeriodLabel = CustomLabel(text: "목표 기간 :")
     
     private let goalPeriodTF: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "목표 기간을 입력해주세요 (일)"
-//        tf.keyboardType = .numberPad
+        tf.placeholder = "100"
         tf.keyboardType = .decimalPad
+        tf.textAlignment = .right
         return tf
     }()
     
-    private let goalDescriptionLabel: UILabel = {
+    private let daysLabel = CustomLabel( text: "일", alignment: .center)
+    
+    private let infiniteBox: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 10
+        button.backgroundColor = UIColor(white: 0.5, alpha: 0.2)
+        return button
+    }()
+    
+    //    private let infiniteLabel: UILabel = {
+    //        let label = UILabel()
+    //        label.textColor = UIColor(white: 0.3, alpha: 0.7)
+    //        label.text = " 항 상"
+    //        return label
+    //    }()
+    private let infiniteLabel = CustomLabel(text: "항 상")
+    
+    private let goalStartDatePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.preferredDatePickerStyle = .automatic
+        datePicker.datePickerMode = .date
+        datePicker.locale = Locale(identifier: "ko-KR")
+        datePicker.timeZone = .autoupdatingCurrent
+        return datePicker
+    }()
+    
+    //    private let tilde: UILabel = {
+    //        let label = UILabel()
+    //        label.text = "~"
+    //        label.textAlignment = .center
+    //        return label
+    //    }()
+    
+    private let tilde = CustomLabel(textColor: .black, text: "~", alignment: .center)
+    
+    private let goalEndDatePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.locale = Locale(identifier: "ko-KR")
+        datePicker.timeZone = .autoupdatingCurrent
+        datePicker.date = Date().addingTimeInterval(86400 * 100)
+        datePicker.preferredDatePickerStyle = .automatic
+        return datePicker
+    }()
+    
+    private let horizontalLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+        return view
+    }()
+    
+    private let alarmLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 11)
-        label.text = "목표 기간 (일) 또는 종료 날짜를 입력해주세요 (2022.03.16)"
-        label.numberOfLines = 2
+        label.text = "알람"
         return label
     }()
     
+    private let alarmTimePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+//        picker.datePickerStyle = UIDatePickerStyle.
+//        picker.datePickerMode = UIDatePickerStyl
+        picker.datePickerMode = .time
+        return picker
+    }()
+    
+    private let goalLabel = CustomLabel(text: "목표")
+    private let goalRepPre = CustomLabel(text: "횟수")
+    private let goalDurationPre = CustomLabel(text: "시간")
+    
+    private let goalRepTF : UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "0 "
+        tf.keyboardType = .numberPad
+        tf.backgroundColor = UIColor(white: 0.5, alpha: 0.2)
+        tf.layer.cornerRadius = 10
+        tf.textAlignment = .right
+        return tf
+    }()
+    
+    private let goalDurationTF : UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "0 "
+        tf.keyboardType = .numberPad
+        tf.backgroundColor = UIColor(white: 0.5, alpha: 0.2)
+        tf.layer.cornerRadius = 10
+        tf.textAlignment = .right
+        return tf
+    }()
+    
+    
+    private let goalRepSuffix = CustomLabel(text: "회")
+    private let goalDurationSuffix = CustomLabel(text: "분")
+    
+    private let routineTimeLabel = CustomLabel(text: "시간")
+    
+    private let startTimePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .time
+        return picker
+    }()
+    private let tilde2 = CustomLabel(textColor: .black, text: "~", alignment: .center)
+    
+    private let endTimePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .time
+        return picker
+    }()
+    
+//    private let
+    
+//    goalLabel, goalRep, goalDuration, goalRepTF, goalDurationTF, goalRepSuffix, goalDurationSuffix
+    
+//    private let
+    // set alarm time to be 5 minutes before the start time of routine
     private let nextButton: UIButton = {
         let button = UIButton()
         button.setTitle("추가", for: .normal)
@@ -97,6 +205,19 @@ class AddHabitController: UIViewController {
         button.addTarget(self, action: #selector(makeHabit), for: .touchUpInside)
         return button
     }()
+    
+    private let cancelButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("취소", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = UIColor(white: 0.7, alpha: 0.3)
+        button.makeCornerRadius(circle: false)
+        button.addTarget(self, action: #selector(cancelPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    
     
     @objc func makeHabit() {
         print("makeHabit triggered")
@@ -111,23 +232,16 @@ class AddHabitController: UIViewController {
         print("dismissed")
     }
     
-    private let cancelButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("취소", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = UIColor(white: 0.7, alpha: 0.3)
-        button.makeCornerRadius(circle: false)
-        button.addTarget(self, action: #selector(cancelPressed), for: .touchUpInside)
-        return button
-    }()
+    
     
     @objc func cancelPressed() {
         self.dismiss(animated: true, completion: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-       configureUI()
+        configureUI()
         
         self.hideKeyboardWhenTappedAround()
     }
@@ -136,35 +250,54 @@ class AddHabitController: UIViewController {
         view.addSubview(controllerLabel)
         view.addSubview(titleLabel)
         view.addSubview(titleTextField)
-
+        
         view.addSubview(onDateLabel)
-
+        
+        view.addSubview(colorLabel)
+        
         view.addSubview(goalPeriodLabel)
         view.addSubview(goalPeriodTF)
-        view.addSubview(goalDescriptionLabel)
+        view.addSubview(daysLabel)
         
-//        view.addSubview(nextButton)
-//        view.addSubview(cancelButton)
+        view.addSubview(infiniteBox)
+        view.addSubview(infiniteLabel)
         
-//        let stackView1 = UIStackView(arrangedSubviews: [titleLabel, onDateLabel])
-//        stackView1.distribution = .fillEqually
-//        stackView1.spacing = 10
-//        stackView1.axis = .vertical
-//        stackView1.backgroundColor = .green
+        view.addSubview(goalStartDatePicker)
+        view.addSubview(tilde)
+        view.addSubview(goalEndDatePicker)
+        
+        view.addSubview(horizontalLine)
+        // cover under with box .
+        view.addSubview(alarmLabel)
+        view.addSubview(alarmTimePicker)
+        view.addMultipleViews(views: [goalLabel, goalRepPre, goalDurationPre, goalRepTF, goalDurationTF, goalRepSuffix, goalDurationSuffix])
+        
+        view.addSubview(routineTimeLabel)
+        view.addSubview(startTimePicker)
+        view.addSubview(endTimePicker)
+        view.addSubview(tilde2)
+//        goalLabel, goalRep, goalDuration, goalRepTF, goalDurationTF, goalRepSuffix, goalDurationSuffix
+//        UIPickerView
+//        UIDatePicker
         
         let bigDaysStackView = UIStackView(arrangedSubviews: [weekDays, weekends, everyday, selection])
         bigDaysStackView.distribution = .fillEqually
-        bigDaysStackView.spacing = 2
-//        bigDaysStackView.backgroundColor = .magenta
+        bigDaysStackView.spacing = 0
         
         // do it later
-//        let smallDaysStackView = UIStackView(arrangedSubviews: [mon, tue, wed, thu, fri, sat, sun])
-//        bigDaysStackView.distribution = .fillEqually
-//        bigDaysStackView.spacing = 2
-//        smallDaysStackView.backgroundColor = .cyan
+        let smallDaysStackView = UIStackView(arrangedSubviews: [mon, tue, wed, thu, fri, sat, sun])
+        smallDaysStackView.distribution = .fillEqually
+        smallDaysStackView.spacing = 0
+        
+        let colorsStackView = UIStackView(arrangedSubviews: [color0, color1, color2, color3, color4, color5])
+        colorsStackView.distribution = .fillEqually
+        colorsStackView.spacing = 13
         
         view.addSubview(bigDaysStackView)
-//        let horizontalSpacing = 10
+        view.addSubview(smallDaysStackView)
+        view.addSubview(colorsStackView)
+        
+        
         let leftSize : CGFloat = 80
         let verticalSpacing: CGFloat = 15
         
@@ -174,7 +307,6 @@ class AddHabitController: UIViewController {
         
         titleLabel.anchor(top: controllerLabel.bottomAnchor, left: view.leftAnchor, paddingTop: 35, paddingLeft: 20)
         titleLabel.setDimensions(height: 40, width: leftSize)
-//        titleLabel.backgroundColor = .magenta
         
         titleTextField.anchor(top: controllerLabel.bottomAnchor, left: titleLabel.rightAnchor, right: view.rightAnchor, paddingTop: 35, paddingLeft: 20, paddingRight: 20)
         titleTextField.setHeight(40)
@@ -183,15 +315,90 @@ class AddHabitController: UIViewController {
         onDateLabel.setDimensions(height: 40, width: leftSize)
         
         bigDaysStackView.anchor(top: titleTextField.bottomAnchor, left: onDateLabel.rightAnchor, right: view.rightAnchor, paddingTop: verticalSpacing, paddingLeft: 20, paddingRight: 20)
-        bigDaysStackView.setHeight(40)
+        bigDaysStackView.setHeight(30)
         
-        goalPeriodLabel.anchor(top: onDateLabel.bottomAnchor, left: view.leftAnchor, paddingTop: verticalSpacing, paddingLeft: 20)
+        smallDaysStackView.anchor(top: bigDaysStackView.bottomAnchor, left: bigDaysStackView.leftAnchor, right: bigDaysStackView.rightAnchor, paddingTop: 5)
+        smallDaysStackView.setHeight(30)
+        
+        
+        colorLabel.anchor(top: smallDaysStackView.bottomAnchor, left: onDateLabel.leftAnchor, right: onDateLabel.rightAnchor, paddingTop: 30)
+        colorLabel.setHeight(40)
+        
+        colorsStackView.anchor(top: smallDaysStackView.bottomAnchor, left: smallDaysStackView.leftAnchor, right: smallDaysStackView.rightAnchor, paddingTop: 30)
+        colorsStackView.setHeight(30)
+        
+        goalPeriodLabel.anchor(top: colorLabel.bottomAnchor, left: view.leftAnchor, paddingTop: verticalSpacing, paddingLeft: 20)
         goalPeriodLabel.setDimensions(height: 40, width: leftSize)
         
-        goalPeriodTF.anchor(top: onDateLabel.bottomAnchor, left: goalPeriodLabel.rightAnchor, right: view.rightAnchor, paddingTop: verticalSpacing, paddingLeft: 20, paddingRight: 20)
-        goalPeriodTF.setHeight(40)
+        goalPeriodTF.anchor(top: colorLabel.bottomAnchor, left: goalPeriodLabel.rightAnchor, paddingTop: verticalSpacing, paddingLeft: 20, paddingRight: 20)
         
-        goalDescriptionLabel.anchor(top: goalPeriodTF.bottomAnchor, left: goalPeriodLabel.rightAnchor, right: view.rightAnchor, paddingLeft: 20, paddingRight: 20)
+        goalPeriodTF.setDimensions(height: 40, width: 80)
+        
+        daysLabel.anchor(top: colorLabel.bottomAnchor, left: goalPeriodTF.rightAnchor, paddingTop: verticalSpacing, paddingLeft: 10)
+        daysLabel.setDimensions(height: 40, width: 15)
+        
+        infiniteBox.anchor(top: colorLabel.bottomAnchor, left: daysLabel.rightAnchor, paddingTop: verticalSpacing, paddingLeft: 25)
+        infiniteBox.setDimensions(height: 35, width: 35)
+        
+        infiniteLabel.anchor(top: colorLabel.bottomAnchor, left: infiniteBox.rightAnchor,right: view.rightAnchor ,paddingTop: verticalSpacing, paddingLeft: 15, paddingRight: 20)
+        infiniteLabel.setHeight(35)
+        
+        goalStartDatePicker.anchor(top: goalPeriodTF.bottomAnchor, left: goalPeriodTF.leftAnchor, paddingTop: 10)
+        goalStartDatePicker.setDimensions(height: 30, width: 115)
+        
+        goalEndDatePicker.anchor(top: goalPeriodTF.bottomAnchor, right: view.rightAnchor, paddingTop: 10, paddingRight: 20)
+        goalEndDatePicker.setDimensions(height: 30, width: 115)
+        
+        tilde.anchor(top: goalPeriodTF.bottomAnchor, left: goalStartDatePicker.rightAnchor, right: goalEndDatePicker.leftAnchor, paddingTop: 10)
+        tilde.setHeight(30)
+        
+        horizontalLine.anchor(top: tilde.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20)
+        horizontalLine.setHeight(2)
+        
+//        alarmLabel.anchor(top: horizontalLine.bottomAnchor, left: view.leftAnchor, )
+        alarmLabel.anchor(top: horizontalLine.bottomAnchor, left: titleLabel.leftAnchor, right: titleLabel.rightAnchor, paddingTop: 20)
+        alarmLabel.setHeight(30)
+        
+        alarmTimePicker.anchor(top: horizontalLine.bottomAnchor, left: titleTextField.leftAnchor, right: titleTextField.rightAnchor, paddingTop: 20)
+        alarmTimePicker.setHeight(30)
+        
+//        goalLabel,
+//        goalRepPre, goalRepTF, goalRepSuffix,
+//        goalDurationPre,  goalDurationTF,  goalDurationSuffix
+        
+        goalLabel.anchor(top: alarmLabel.bottomAnchor, left: titleLabel.leftAnchor, right: titleLabel.rightAnchor, paddingTop: 30)
+        goalLabel.setHeight(30)
+        
+        goalRepPre.anchor(top: alarmLabel.bottomAnchor, left: titleTextField.leftAnchor, paddingTop: 30)
+        goalRepPre.setDimensions(height: 30, width: 50)
+        
+        goalRepTF.anchor(top: alarmLabel.bottomAnchor, left: goalRepPre.rightAnchor, paddingTop: 30, paddingLeft: 10)
+        goalRepTF.setDimensions(height: 30, width: 60)
+        
+        goalRepSuffix.anchor(top: alarmLabel.bottomAnchor, left: goalRepTF.rightAnchor, paddingTop: 30, paddingLeft: 10)
+        goalRepSuffix.setDimensions(height: 30, width: 30)
+        
+        goalDurationPre.anchor(top: goalRepPre.bottomAnchor, left: titleTextField.leftAnchor, paddingTop: 5)
+        goalDurationPre.setDimensions(height: 30, width: 50)
+        
+        goalDurationTF.anchor(top: goalRepPre.bottomAnchor, left: goalDurationPre.rightAnchor, paddingTop: 5, paddingLeft: 10)
+        goalDurationTF.setDimensions(height: 30, width: 60)
+        
+        goalDurationSuffix.anchor(top: goalRepPre.bottomAnchor, left: goalDurationTF.rightAnchor, paddingTop: 5, paddingLeft: 10)
+        goalDurationSuffix.setDimensions(height: 30, width: 30)
+        
+        routineTimeLabel.anchor(top: goalDurationPre.bottomAnchor, left: titleLabel.leftAnchor, right: titleLabel.rightAnchor, paddingTop: 30)
+        startTimePicker.anchor(top: goalDurationPre.bottomAnchor, left: goalStartDatePicker.leftAnchor, paddingTop: 30)
+        startTimePicker.setDimensions(height: 30, width:    115)
+        
+        endTimePicker.anchor(top: goalDurationPre.bottomAnchor, right: goalEndDatePicker.rightAnchor, paddingTop: 30)
+        endTimePicker.setDimensions(height: 30, width: 115)
+        
+        tilde2.anchor(top: goalDurationPre.bottomAnchor, left: startTimePicker.rightAnchor, right: endTimePicker.leftAnchor, paddingTop: 30)
+        tilde2.setHeight(30)
+        
+        
+        
         
         let confirmStackView = UIStackView(arrangedSubviews: [nextButton, cancelButton])
         confirmStackView.spacing = 15
@@ -200,8 +407,5 @@ class AddHabitController: UIViewController {
         
         confirmStackView.anchor( left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 50, paddingBottom: 50, paddingRight: 50)
         confirmStackView.setHeight(35)
-
-        
     }
-    
 }
