@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0214D226E7AE0A005FB99A /* AddNeHabitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0214D126E7AE0A005FB99A /* AddNeHabitController.swift */; };
+		9A0214D426E7B456005FB99A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0214D326E7B456005FB99A /* Constants.swift */; };
 		9A9418AE26DD756300AE6A86 /* CustomClassValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9418AD26DD756300AE6A86 /* CustomClassValueTransformer.swift */; };
 		9A9418B026DFBF4E00AE6A86 /* NegativeHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9418AF26DFBF4E00AE6A86 /* NegativeHabit.swift */; };
 		9AD57C7126D827FE00E08812 /* CalenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD57C7026D827FE00E08812 /* CalenderController.swift */; };
@@ -24,7 +26,6 @@
 		9AD57CAB26D94ABF00E08812 /* CalendarMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD57CAA26D94ABF00E08812 /* CalendarMainController.swift */; };
 		9ADD164726D68790001E736C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD164626D68790001E736C /* AppDelegate.swift */; };
 		9ADD164926D68790001E736C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD164826D68790001E736C /* SceneDelegate.swift */; };
-		9ADD164B26D68790001E736C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD164A26D68790001E736C /* ViewController.swift */; };
 		9ADD164E26D68790001E736C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ADD164C26D68790001E736C /* Main.storyboard */; };
 		9ADD165126D68790001E736C /* TodoHabit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD164F26D68790001E736C /* TodoHabit.xcdatamodeld */; };
 		9ADD165326D68792001E736C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ADD165226D68792001E736C /* Assets.xcassets */; };
@@ -47,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		5525BE495496875C4F915E8D /* Pods-TodoHabit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoHabit.debug.xcconfig"; path = "Target Support Files/Pods-TodoHabit/Pods-TodoHabit.debug.xcconfig"; sourceTree = "<group>"; };
+		9A0214D126E7AE0A005FB99A /* AddNeHabitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeHabitController.swift; sourceTree = "<group>"; };
+		9A0214D326E7B456005FB99A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9A9418AD26DD756300AE6A86 /* CustomClassValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClassValueTransformer.swift; sourceTree = "<group>"; };
 		9A9418AF26DFBF4E00AE6A86 /* NegativeHabit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeHabit.swift; sourceTree = "<group>"; };
 		9AD57C7026D827FE00E08812 /* CalenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderController.swift; sourceTree = "<group>"; };
@@ -65,7 +68,6 @@
 		9ADD164326D68790001E736C /* TodoHabit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoHabit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADD164626D68790001E736C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ADD164826D68790001E736C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9ADD164A26D68790001E736C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9ADD164D26D68790001E736C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9ADD165026D68790001E736C /* TodoHabit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoHabit.xcdatamodel; sourceTree = "<group>"; };
 		9ADD165226D68792001E736C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +109,15 @@
 				D9646708317359677E61B4D6 /* Pods-TodoHabit.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9A0214D026E7ADE4005FB99A /* NegativeHabits */ = {
+			isa = PBXGroup;
+			children = (
+				9A0214D126E7AE0A005FB99A /* AddNeHabitController.swift */,
+			);
+			name = NegativeHabits;
+			path = Todos/NegativeHabits;
 			sourceTree = "<group>";
 		};
 		9AD57C4E26D6F4FE00E08812 /* Models */ = {
@@ -177,7 +188,7 @@
 				9AD57C4E26D6F4FE00E08812 /* Models */,
 				9ADD166626D68ECC001E736C /* Habits */,
 				9ADD167026D694AF001E736C /* Todos */,
-				9ADD164A26D68790001E736C /* ViewController.swift */,
+				9A0214D026E7ADE4005FB99A /* NegativeHabits */,
 				9AD57C6F26D827DD00E08812 /* Calender */,
 				9ADD166526D68B4D001E736C /* MainControllers */,
 				9ADD164C26D68790001E736C /* Main.storyboard */,
@@ -216,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				9ADD166D26D690F4001E736C /* Extensions.swift */,
+				9A0214D326E7B456005FB99A /* Constants.swift */,
 				9ADD167926D6B512001E736C /* CustomButton.swift */,
 			);
 			path = Utils;
@@ -363,7 +375,6 @@
 				9ADD166426D6895A001E736C /* SettingsController.swift in Sources */,
 				9ADD165126D68790001E736C /* TodoHabit.xcdatamodeld in Sources */,
 				9AD57CA626D93CB500E08812 /* NegativeMainController.swift in Sources */,
-				9ADD164B26D68790001E736C /* ViewController.swift in Sources */,
 				9ADD166026D688FE001E736C /* HabitController.swift in Sources */,
 				9A9418B026DFBF4E00AE6A86 /* NegativeHabit.swift in Sources */,
 				9ADD165E26D68845001E736C /* MainTabController.swift in Sources */,
@@ -380,12 +391,14 @@
 				9ADD166A26D68F04001E736C /* Habit.swift in Sources */,
 				9AD57C7526D8281E00E08812 /* WeekdaysView.swift in Sources */,
 				9ADD167626D698A5001E736C /* HabitFooter.swift in Sources */,
+				9A0214D426E7B456005FB99A /* Constants.swift in Sources */,
 				9ADD164726D68790001E736C /* AppDelegate.swift in Sources */,
 				9AD57C7D26D901CA00E08812 /* TodoView.swift in Sources */,
 				9ADD167A26D6B512001E736C /* CustomButton.swift in Sources */,
 				9AD57C7F26D908E200E08812 /* TodoMainController.swift in Sources */,
 				9AD57C7726D8282600E08812 /* CalendarView.swift in Sources */,
 				9ADD164926D68790001E736C /* SceneDelegate.swift in Sources */,
+				9A0214D226E7AE0A005FB99A /* AddNeHabitController.swift in Sources */,
 				9ADD167226D694B5001E736C /* Todo.swift in Sources */,
 				9ADD166826D68EF5001E736C /* HabitCell.swift in Sources */,
 			);
