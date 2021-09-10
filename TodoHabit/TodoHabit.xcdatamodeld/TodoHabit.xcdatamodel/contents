@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="AchievedDates" representedClassName="AchievedDates" syncable="YES">
+    <entity name="AchievedDates" representedClassName="AchievedDates" syncable="YES" codeGenerationType="class">
         <attribute name="dates" optional="YES" attributeType="Binary"/>
         <attribute name="yearMonth" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="habitAchievedDates" inverseEntity="Habit"/>
         <relationship name="negativeHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeHabit" inverseName="negativeAchieved" inverseEntity="NegativeHabit"/>
     </entity>
-    <entity name="Alarm" representedClassName="Alarm" syncable="YES">
+    <entity name="Alarm" representedClassName="Alarm" syncable="YES" codeGenerationType="class">
         <attribute name="alarmTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="isAlarmOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="habitAlarm" inverseEntity="Habit"/>
         <relationship name="todo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Todo" inverseName="todoAlarm" inverseEntity="Todo"/>
     </entity>
-    <entity name="Goal" representedClassName="Goal" syncable="YES">
+    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class">
         <attribute name="goalDuration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="goalRep" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="habitGoal" inverseEntity="Habit"/>
         <relationship name="negativeHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeHabit" inverseName="negativeGoal" inverseEntity="NegativeHabit"/>
         <relationship name="todo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Todo" inverseName="todoGoal" inverseEntity="Todo"/>
     </entity>
-    <entity name="Habit" representedClassName="Habit" syncable="YES">
+    <entity name="Habit" representedClassName="Habit" syncable="YES" codeGenerationType="class">
         <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="onDates" optional="YES" attributeType="Binary"/>
         <attribute name="title" optional="YES" attributeType="String"/>
@@ -29,7 +29,7 @@
         <relationship name="habitGoal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="habit" inverseEntity="Goal"/>
         <relationship name="habitTime" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OnTime" inverseName="habit" inverseEntity="OnTime"/>
     </entity>
-    <entity name="NegativeHabit" representedClassName="NegativeHabit" syncable="YES">
+    <entity name="NegativeHabit" representedClassName="NegativeHabit" syncable="YES" codeGenerationType="class">
         <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="onDates" optional="YES" attributeType="Binary"/>
         <attribute name="title" optional="YES" attributeType="String"/>
@@ -37,20 +37,20 @@
         <relationship name="negativeDates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StartEndDates" inverseName="negativeHabit" inverseEntity="StartEndDates"/>
         <relationship name="negativeGoal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="negativeHabit" inverseEntity="Goal"/>
     </entity>
-    <entity name="OnTime" representedClassName="OnTime" syncable="YES">
+    <entity name="OnTime" representedClassName="OnTime" syncable="YES" codeGenerationType="class">
         <attribute name="endsAt" optional="YES" attributeType="String"/>
         <attribute name="startsAt" optional="YES" attributeType="String"/>
         <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="habitTime" inverseEntity="Habit"/>
         <relationship name="todo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Todo" inverseName="todoTime" inverseEntity="Todo"/>
     </entity>
-    <entity name="StartEndDates" representedClassName="StartEndDates" syncable="YES">
+    <entity name="StartEndDates" representedClassName="StartEndDates" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="datesDuration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="endAt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="habitDates" inverseEntity="Habit"/>
         <relationship name="negativeHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeHabit" inverseName="negativeDates" inverseEntity="NegativeHabit"/>
     </entity>
-    <entity name="Todo" representedClassName="Todo" syncable="YES">
+    <entity name="Todo" representedClassName="Todo" syncable="YES" codeGenerationType="class">
         <attribute name="onDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="todoAlarm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Alarm" inverseName="todo" inverseEntity="Alarm"/>
@@ -58,13 +58,13 @@
         <relationship name="todoTime" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OnTime" inverseName="todo" inverseEntity="OnTime"/>
     </entity>
     <elements>
-        <element name="Habit" positionX="-45" positionY="0" width="128" height="149"/>
+        <element name="AchievedDates" positionX="0" positionY="99" width="128" height="89"/>
         <element name="Alarm" positionX="-18" positionY="36" width="128" height="89"/>
         <element name="Goal" positionX="9" positionY="81" width="128" height="104"/>
-        <element name="StartEndDates" positionX="27" positionY="108" width="128" height="104"/>
-        <element name="OnTime" positionX="45" positionY="144" width="128" height="89"/>
-        <element name="AchievedDates" positionX="0" positionY="99" width="128" height="89"/>
+        <element name="Habit" positionX="-45" positionY="0" width="128" height="149"/>
         <element name="NegativeHabit" positionX="9" positionY="108" width="128" height="119"/>
+        <element name="OnTime" positionX="45" positionY="144" width="128" height="89"/>
+        <element name="StartEndDates" positionX="27" positionY="108" width="128" height="104"/>
         <element name="Todo" positionX="27" positionY="126" width="128" height="104"/>
     </elements>
 </model>

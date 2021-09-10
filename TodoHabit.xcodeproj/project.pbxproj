@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A0214D226E7AE0A005FB99A /* AddNeHabitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0214D126E7AE0A005FB99A /* AddNeHabitController.swift */; };
 		9A0214D426E7B456005FB99A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0214D326E7B456005FB99A /* Constants.swift */; };
+		9A569E3026EBB2DE006CACE7 /* notes in Resources */ = {isa = PBXBuildFile; fileRef = 9A569E2F26EBB2DE006CACE7 /* notes */; };
 		9A9418AE26DD756300AE6A86 /* CustomClassValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9418AD26DD756300AE6A86 /* CustomClassValueTransformer.swift */; };
 		9A9418B026DFBF4E00AE6A86 /* NegativeHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9418AF26DFBF4E00AE6A86 /* NegativeHabit.swift */; };
 		9AD57C7126D827FE00E08812 /* CalenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD57C7026D827FE00E08812 /* CalenderController.swift */; };
@@ -50,6 +51,7 @@
 		5525BE495496875C4F915E8D /* Pods-TodoHabit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoHabit.debug.xcconfig"; path = "Target Support Files/Pods-TodoHabit/Pods-TodoHabit.debug.xcconfig"; sourceTree = "<group>"; };
 		9A0214D126E7AE0A005FB99A /* AddNeHabitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeHabitController.swift; sourceTree = "<group>"; };
 		9A0214D326E7B456005FB99A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9A569E2F26EBB2DE006CACE7 /* notes */ = {isa = PBXFileReference; lastKnownFileType = text; path = notes; sourceTree = "<group>"; };
 		9A9418AD26DD756300AE6A86 /* CustomClassValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClassValueTransformer.swift; sourceTree = "<group>"; };
 		9A9418AF26DFBF4E00AE6A86 /* NegativeHabit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeHabit.swift; sourceTree = "<group>"; };
 		9AD57C7026D827FE00E08812 /* CalenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderController.swift; sourceTree = "<group>"; };
@@ -111,13 +113,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		9A0214D026E7ADE4005FB99A /* NegativeHabits */ = {
+		9A02152C26EBA795005FB99A /* AddControllers */ = {
 			isa = PBXGroup;
 			children = (
 				9A0214D126E7AE0A005FB99A /* AddNeHabitController.swift */,
+				9ADD167726D6A78B001E736C /* AddHabitController.swift */,
+				9AD57CA726D93EBD00E08812 /* AddTodoController.swift */,
 			);
-			name = NegativeHabits;
-			path = Todos/NegativeHabits;
+			path = AddControllers;
 			sourceTree = "<group>";
 		};
 		9AD57C4E26D6F4FE00E08812 /* Models */ = {
@@ -163,6 +166,8 @@
 		9ADD163A26D68790001E736C = {
 			isa = PBXGroup;
 			children = (
+				9A569E2F26EBB2DE006CACE7 /* notes */,
+				9A02152C26EBA795005FB99A /* AddControllers */,
 				9ADD164526D68790001E736C /* TodoHabit */,
 				9ADD164426D68790001E736C /* Products */,
 				45D8C4BE65E072D1C3E17E3A /* Pods */,
@@ -188,7 +193,6 @@
 				9AD57C4E26D6F4FE00E08812 /* Models */,
 				9ADD166626D68ECC001E736C /* Habits */,
 				9ADD167026D694AF001E736C /* Todos */,
-				9A0214D026E7ADE4005FB99A /* NegativeHabits */,
 				9AD57C6F26D827DD00E08812 /* Calender */,
 				9ADD166526D68B4D001E736C /* MainControllers */,
 				9ADD164C26D68790001E736C /* Main.storyboard */,
@@ -218,7 +222,6 @@
 				9ADD167326D697E6001E736C /* HabitHeader.swift */,
 				9ADD167526D698A5001E736C /* HabitFooter.swift */,
 				9ADD166B26D68F0B001E736C /* HabitViewModel.swift */,
-				9ADD167726D6A78B001E736C /* AddHabitController.swift */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
@@ -241,7 +244,6 @@
 				9AD57C8026D90E8E00E08812 /* TodoTableCell.swift */,
 				9AD57C8226D91A4400E08812 /* TodoViewModel.swift */,
 				9ADD166126D68927001E736C /* TodoController.swift */,
-				9AD57CA726D93EBD00E08812 /* AddTodoController.swift */,
 			);
 			path = Todos;
 			sourceTree = "<group>";
@@ -315,6 +317,7 @@
 			files = (
 				9ADD165626D68792001E736C /* LaunchScreen.storyboard in Resources */,
 				9ADD165326D68792001E736C /* Assets.xcassets in Resources */,
+				9A569E3026EBB2DE006CACE7 /* notes in Resources */,
 				9ADD164E26D68790001E736C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

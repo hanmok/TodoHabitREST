@@ -120,10 +120,10 @@ class TodoMainController: UIViewController {
 extension TodoMainController : AddTodoViewControllerDelegate {
     
     func addTodo(title: String) {
-        let newTodo = Todo(context: self.context)
-        newTodo.onDate = Date()
-        newTodo.isDone = false
-        newTodo.title = title
+//        let newTodo = Todo(context: self.context)
+//        newTodo.onDate = Date()
+//        newTodo.isDone = false
+//        newTodo.title = title
         
         do {
             try self.context.save()

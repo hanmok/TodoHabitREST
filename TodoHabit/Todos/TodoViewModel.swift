@@ -21,11 +21,12 @@ struct TodoViewModel {
     public var todo: Todo
     
     var containerColor: UIColor {
-        return todo.isDone ? TodoColors.doneContainerColor : TodoColors.notDoneContainerColor
+//        return todo.isDone ? TodoColors.doneContainerColor : TodoColors.notDoneContainerColor
+        return UIColor.red
     }
     
     var labelColor: UIColor {
-
-        return todo.isDone ? TodoColors.doneLabelColor : TodoColors.notDoneLabelColor
+        return UIColor.blue
+//        return todo.isDone ? TodoColors.doneLabelColor : TodoColors.notDoneLabelColor
     }
 }

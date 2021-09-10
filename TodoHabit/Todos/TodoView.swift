@@ -86,7 +86,7 @@ class TodoView: UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoTableCell", for: indexPath) as! TodoTableCell
         cell.todo = todos![indexPath.row]
-        cell.viewModel = TodoViewModel(todo: todos![indexPath.row])
+//        cell.viewModel = TodoViewModel(todo: todos![indexPath.row])
         return cell
     }
     
@@ -99,10 +99,10 @@ class TodoView: UIView, UITableViewDelegate, UITableViewDataSource {
 extension TodoView {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        guard let validTodos = todos else { return }
-        var todo = validTodos[indexPath.row]
+//        guard let validTodos = todos else { return }
+//        var todo = validTodos[indexPath.row]
         
-        todo.isDone.toggle()
+//        todo.isDone.toggle()
         do {
             try self.context.save()
             print("trying toggle!")

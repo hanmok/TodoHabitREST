@@ -2,54 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Alarm+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Alarm+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:StartEndDates+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:StartEndDates+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:OnTime+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:OnTime+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Goal+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Goal+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:AchievedDates+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:AchievedDates+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:NegativeHabit+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:NegativeHabit+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Todo+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Todo+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Habit+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Habit+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:TodoHabit.xcodeproj">
    </FileRef>
    <FileRef
