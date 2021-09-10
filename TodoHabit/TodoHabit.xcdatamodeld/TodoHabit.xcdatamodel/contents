@@ -1,97 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Habit" representedClassName="Habit" syncable="YES" codeGenerationType="class">
-        <attribute name="colorString" optional="YES" attributeType="String" valueTransformerName="CustomClassValueTransformer" customClassName="UIColor"/>
-        <attribute name="goalPeriod" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="onDates" optional="YES" attributeType="Binary" customClassName="[Int]"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="alarm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HabitAlarm" inverseName="habit" inverseEntity="HabitAlarm"/>
-        <relationship name="completionHistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HabitCompletionDates" inverseName="habit" inverseEntity="HabitCompletionDates"/>
-        <relationship name="date" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HabitDate" inverseName="habit" inverseEntity="HabitDate"/>
-        <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HabitGoal" inverseName="habit" inverseEntity="HabitGoal"/>
-        <relationship name="time" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HabitTime" inverseName="habit" inverseEntity="HabitTime"/>
+    <entity name="AchievedDates" representedClassName="AchievedDates" syncable="YES">
+        <attribute name="dates" optional="YES" attributeType="Binary"/>
+        <attribute name="yearMonth" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="habitAchievedDates" inverseEntity="Habit"/>
+        <relationship name="negativeHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeHabit" inverseName="negativeAchieved" inverseEntity="NegativeHabit"/>
     </entity>
-    <entity name="HabitAlarm" representedClassName="HabitAlarm" parentEntity="Habit" syncable="YES" codeGenerationType="class">
-        <attribute name="alarmAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    <entity name="Alarm" representedClassName="Alarm" syncable="YES">
+        <attribute name="alarmTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="isAlarmOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="alarm" inverseEntity="Habit"/>
+        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="habitAlarm" inverseEntity="Habit"/>
+        <relationship name="todo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Todo" inverseName="todoAlarm" inverseEntity="Todo"/>
     </entity>
-    <entity name="HabitCompletionDates" representedClassName="HabitCompletionDates" parentEntity="Habit" syncable="YES" codeGenerationType="class">
-        <attribute name="doneDates" optional="YES" attributeType="Binary" customClassName="[Int]"/>
-        <attribute name="yearMonth" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="completionHistory" inverseEntity="Habit"/>
-    </entity>
-    <entity name="HabitDate" representedClassName="HabitDate" parentEntity="Habit" syncable="YES" codeGenerationType="class">
-        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="date" inverseEntity="Habit"/>
-    </entity>
-    <entity name="HabitGoal" representedClassName="HabitGoal" parentEntity="Habit" syncable="YES" codeGenerationType="class">
-        <attribute name="goalRep" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="goalTime" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="goal" inverseEntity="Habit"/>
-    </entity>
-    <entity name="HabitTime" representedClassName="HabitTime" parentEntity="Habit" syncable="YES" codeGenerationType="class">
-        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="time" inverseEntity="Habit"/>
-    </entity>
-    <entity name="NegativeCompletionDates" representedClassName="NegativeCompletionDates" parentEntity="NegativeHabit" syncable="YES" codeGenerationType="class">
-        <attribute name="doneDates" optional="YES" attributeType="Binary" customClassName="[Int]"/>
-        <attribute name="howLong" optional="YES" attributeType="Binary" customClassName="Dictionary&lt;Int:Date&gt;"/>
-        <attribute name="howMany" optional="YES" attributeType="Binary" customClassName="[Int:Int]"/>
-        <attribute name="yearMonth" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="negativeHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeHabit" inverseName="completionHistory" inverseEntity="NegativeHabit"/>
-    </entity>
-    <entity name="NegativeDate" representedClassName="NegativeDate" syncable="YES" codeGenerationType="class">
-        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="negativeHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeHabit" inverseName="date" inverseEntity="NegativeHabit"/>
-    </entity>
-    <entity name="NegativeGoal" representedClassName="NegativeGoal" parentEntity="NegativeHabit" syncable="YES" codeGenerationType="class">
-        <attribute name="goalRep" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="goalTime" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="negativeHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeHabit" inverseName="goal" inverseEntity="NegativeHabit"/>
-    </entity>
-    <entity name="NegativeHabit" representedClassName="NegativeHabit" syncable="YES" codeGenerationType="class">
-        <attribute name="colorString" optional="YES" attributeType="String"/>
-        <attribute name="onDates" optional="YES" attributeType="Binary" customClassName="[Int]"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="completionHistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeCompletionDates" inverseName="negativeHabit" inverseEntity="NegativeCompletionDates"/>
-        <relationship name="date" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeDate" inverseName="negativeHabit" inverseEntity="NegativeDate"/>
-        <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeGoal" inverseName="negativeHabit" inverseEntity="NegativeGoal"/>
-    </entity>
-    <entity name="Todo" representedClassName="Todo" syncable="YES" codeGenerationType="class">
+    <entity name="Goal" representedClassName="Goal" syncable="YES">
         <attribute name="goalDuration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="goalRep" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="habitGoal" inverseEntity="Habit"/>
+        <relationship name="negativeHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeHabit" inverseName="negativeGoal" inverseEntity="NegativeHabit"/>
+        <relationship name="todo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Todo" inverseName="todoGoal" inverseEntity="Todo"/>
+    </entity>
+    <entity name="Habit" representedClassName="Habit" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="onDates" optional="YES" attributeType="Binary"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="habitAchievedDates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AchievedDates" inverseName="habit" inverseEntity="AchievedDates"/>
+        <relationship name="habitAlarm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Alarm" inverseName="habit" inverseEntity="Alarm"/>
+        <relationship name="habitDates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StartEndDates" inverseName="habit" inverseEntity="StartEndDates"/>
+        <relationship name="habitGoal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="habit" inverseEntity="Goal"/>
+        <relationship name="habitTime" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OnTime" inverseName="habit" inverseEntity="OnTime"/>
+    </entity>
+    <entity name="NegativeHabit" representedClassName="NegativeHabit" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="onDates" optional="YES" attributeType="Binary"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="negativeAchieved" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AchievedDates" inverseName="negativeHabit" inverseEntity="AchievedDates"/>
+        <relationship name="negativeDates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StartEndDates" inverseName="negativeHabit" inverseEntity="StartEndDates"/>
+        <relationship name="negativeGoal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="negativeHabit" inverseEntity="Goal"/>
+    </entity>
+    <entity name="OnTime" representedClassName="OnTime" syncable="YES">
+        <attribute name="endsAt" optional="YES" attributeType="String"/>
+        <attribute name="startsAt" optional="YES" attributeType="String"/>
+        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="habitTime" inverseEntity="Habit"/>
+        <relationship name="todo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Todo" inverseName="todoTime" inverseEntity="Todo"/>
+    </entity>
+    <entity name="StartEndDates" representedClassName="StartEndDates" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="datesDuration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="endAt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="habit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Habit" inverseName="habitDates" inverseEntity="Habit"/>
+        <relationship name="negativeHabit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NegativeHabit" inverseName="negativeDates" inverseEntity="NegativeHabit"/>
+    </entity>
+    <entity name="Todo" representedClassName="Todo" syncable="YES">
         <attribute name="onDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="alarm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TodoAlarm" inverseName="todo" inverseEntity="TodoAlarm"/>
-        <relationship name="time" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TodoTime" inverseName="todo" inverseEntity="TodoTime"/>
-    </entity>
-    <entity name="TodoAlarm" representedClassName="TodoAlarm" parentEntity="Todo" syncable="YES" codeGenerationType="class">
-        <attribute name="alAlarmOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="alarmAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="todo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Todo" inverseName="alarm" inverseEntity="Todo"/>
-    </entity>
-    <entity name="TodoTime" representedClassName="TodoTime" parentEntity="Todo" syncable="YES" codeGenerationType="class">
-        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="todo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Todo" inverseName="time" inverseEntity="Todo"/>
+        <relationship name="todoAlarm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Alarm" inverseName="todo" inverseEntity="Alarm"/>
+        <relationship name="todoGoal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="todo" inverseEntity="Goal"/>
+        <relationship name="todoTime" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OnTime" inverseName="todo" inverseEntity="OnTime"/>
     </entity>
     <elements>
-        <element name="Habit" positionX="-45" positionY="0" width="128" height="164"/>
-        <element name="HabitAlarm" positionX="-45" positionY="36" width="128" height="74"/>
-        <element name="HabitCompletionDates" positionX="-18" positionY="90" width="128" height="74"/>
-        <element name="HabitDate" positionX="36" positionY="135" width="128" height="74"/>
-        <element name="HabitGoal" positionX="-27" positionY="63" width="128" height="74"/>
-        <element name="HabitTime" positionX="27" positionY="126" width="128" height="74"/>
-        <element name="NegativeCompletionDates" positionX="18" positionY="126" width="128" height="104"/>
-        <element name="NegativeDate" positionX="18" positionY="117" width="128" height="74"/>
-        <element name="NegativeGoal" positionX="36" positionY="153" width="128" height="74"/>
-        <element name="NegativeHabit" positionX="0" positionY="99" width="128" height="119"/>
-        <element name="Todo" positionX="-45" positionY="27" width="128" height="119"/>
-        <element name="TodoAlarm" positionX="54" positionY="162" width="128" height="74"/>
-        <element name="TodoTime" positionX="9" positionY="108" width="128" height="74"/>
+        <element name="Habit" positionX="-45" positionY="0" width="128" height="149"/>
+        <element name="Alarm" positionX="-18" positionY="36" width="128" height="89"/>
+        <element name="Goal" positionX="9" positionY="81" width="128" height="104"/>
+        <element name="StartEndDates" positionX="27" positionY="108" width="128" height="104"/>
+        <element name="OnTime" positionX="45" positionY="144" width="128" height="89"/>
+        <element name="AchievedDates" positionX="0" positionY="99" width="128" height="89"/>
+        <element name="NegativeHabit" positionX="9" positionY="108" width="128" height="119"/>
+        <element name="Todo" positionX="27" positionY="126" width="128" height="104"/>
     </elements>
 </model>
