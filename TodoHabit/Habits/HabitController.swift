@@ -187,6 +187,10 @@ extension HabitController: HabitFooterDelegate {
 
 
 extension HabitController: AddHabitDelegate {
+    func addHabit(title: String, color: String, dates: [Int], createdAt: Date, datesDuration: Int, goalDuration: Int?, goalRep: Int?, startsAt: String?, endsAt: String?) {
+        print("this is my test code")
+    }
+    
     func addHabit(with title: String, dates: [Int], goal: Int) {
         print("addHabit in HabitController")
 

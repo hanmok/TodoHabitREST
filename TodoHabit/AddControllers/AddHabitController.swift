@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddHabitDelegate: AnyObject {
-    func addHabit(with title: String, dates: [Int], goal: Int)
+    func addHabit(title: String, color: String, dates: [Int], createdAt: Date, datesDuration: Int, goalDuration: Int?, goalRep: Int?, startsAt: String?, endsAt: String?)
 }
 
 class AddHabitController: UIViewController {
@@ -203,7 +203,7 @@ class AddHabitController: UIViewController {
         guard let goalStr = goalPeriodTF.text else { return }
         guard let goalInt = Int(goalStr) else { return }
         print("what is wrong.. ? ")
-        delegate?.addHabit(with: title, dates: dates, goal: goalInt)
+//        delegate?.addHabit(with: title, dates: dates, goal: goalInt)
         print("call delegate")
         self.dismiss(animated: true, completion: nil)
         print("dismissed")

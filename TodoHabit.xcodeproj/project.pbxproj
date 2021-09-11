@@ -10,7 +10,6 @@
 		9A0214D226E7AE0A005FB99A /* AddNeHabitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0214D126E7AE0A005FB99A /* AddNeHabitController.swift */; };
 		9A0214D426E7B456005FB99A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0214D326E7B456005FB99A /* Constants.swift */; };
 		9A569E3026EBB2DE006CACE7 /* notes in Resources */ = {isa = PBXBuildFile; fileRef = 9A569E2F26EBB2DE006CACE7 /* notes */; };
-		9A9418AE26DD756300AE6A86 /* CustomClassValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9418AD26DD756300AE6A86 /* CustomClassValueTransformer.swift */; };
 		9A9418B026DFBF4E00AE6A86 /* NegativeHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9418AF26DFBF4E00AE6A86 /* NegativeHabit.swift */; };
 		9AD57C7126D827FE00E08812 /* CalenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD57C7026D827FE00E08812 /* CalenderController.swift */; };
 		9AD57C7326D8280D00E08812 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD57C7226D8280D00E08812 /* MonthView.swift */; };
@@ -44,6 +43,7 @@
 		9ADD167626D698A5001E736C /* HabitFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD167526D698A5001E736C /* HabitFooter.swift */; };
 		9ADD167826D6A78B001E736C /* AddHabitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD167726D6A78B001E736C /* AddHabitController.swift */; };
 		9ADD167A26D6B512001E736C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD167926D6B512001E736C /* CustomButton.swift */; };
+		9AFB1F6426ECA7EA0086F9EA /* SubStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB1F6326ECA7EA0086F9EA /* SubStructs.swift */; };
 		DCE73BACB834DF19FD7948FF /* Pods_TodoHabit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4455510E93152162F620A63 /* Pods_TodoHabit.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,6 @@
 		9A0214D126E7AE0A005FB99A /* AddNeHabitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNeHabitController.swift; sourceTree = "<group>"; };
 		9A0214D326E7B456005FB99A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9A569E2F26EBB2DE006CACE7 /* notes */ = {isa = PBXFileReference; lastKnownFileType = text; path = notes; sourceTree = "<group>"; };
-		9A9418AD26DD756300AE6A86 /* CustomClassValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClassValueTransformer.swift; sourceTree = "<group>"; };
 		9A9418AF26DFBF4E00AE6A86 /* NegativeHabit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeHabit.swift; sourceTree = "<group>"; };
 		9AD57C7026D827FE00E08812 /* CalenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderController.swift; sourceTree = "<group>"; };
 		9AD57C7226D8280D00E08812 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		9ADD167526D698A5001E736C /* HabitFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitFooter.swift; sourceTree = "<group>"; };
 		9ADD167726D6A78B001E736C /* AddHabitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitController.swift; sourceTree = "<group>"; };
 		9ADD167926D6B512001E736C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		9AFB1F6326ECA7EA0086F9EA /* SubStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubStructs.swift; sourceTree = "<group>"; };
 		D9646708317359677E61B4D6 /* Pods-TodoHabit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoHabit.release.xcconfig"; path = "Target Support Files/Pods-TodoHabit/Pods-TodoHabit.release.xcconfig"; sourceTree = "<group>"; };
 		E4455510E93152162F620A63 /* Pods_TodoHabit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoHabit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -128,8 +128,8 @@
 			children = (
 				9ADD167126D694B5001E736C /* Todo.swift */,
 				9ADD166926D68F04001E736C /* Habit.swift */,
-				9A9418AD26DD756300AE6A86 /* CustomClassValueTransformer.swift */,
 				9A9418AF26DFBF4E00AE6A86 /* NegativeHabit.swift */,
+				9AFB1F6326ECA7EA0086F9EA /* SubStructs.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				9A569E2F26EBB2DE006CACE7 /* notes */,
-				9A02152C26EBA795005FB99A /* AddControllers */,
 				9ADD164526D68790001E736C /* TodoHabit */,
 				9ADD164426D68790001E736C /* Products */,
 				45D8C4BE65E072D1C3E17E3A /* Pods */,
@@ -191,14 +190,15 @@
 				9AD57CA926D94AAD00E08812 /* Calendar */,
 				9AD57CA426D93C9C00E08812 /* NegativeHabits */,
 				9AD57C4E26D6F4FE00E08812 /* Models */,
+				9A02152C26EBA795005FB99A /* AddControllers */,
 				9ADD166626D68ECC001E736C /* Habits */,
 				9ADD167026D694AF001E736C /* Todos */,
 				9AD57C6F26D827DD00E08812 /* Calender */,
 				9ADD166526D68B4D001E736C /* MainControllers */,
-				9ADD164C26D68790001E736C /* Main.storyboard */,
 				9ADD166F26D69104001E736C /* Utils */,
 				9ADD165226D68792001E736C /* Assets.xcassets */,
 				9ADD165426D68792001E736C /* LaunchScreen.storyboard */,
+				9ADD164C26D68790001E736C /* Main.storyboard */,
 				9ADD165726D68792001E736C /* Info.plist */,
 				9ADD164F26D68790001E736C /* TodoHabit.xcdatamodeld */,
 			);
@@ -371,11 +371,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A9418AE26DD756300AE6A86 /* CustomClassValueTransformer.swift in Sources */,
 				9AD57CAB26D94ABF00E08812 /* CalendarMainController.swift in Sources */,
 				9AD57C7926D8305900E08812 /* CalendarViewCell.swift in Sources */,
 				9AD57CA826D93EBD00E08812 /* AddTodoController.swift in Sources */,
 				9ADD166426D6895A001E736C /* SettingsController.swift in Sources */,
+				9AFB1F6426ECA7EA0086F9EA /* SubStructs.swift in Sources */,
 				9ADD165126D68790001E736C /* TodoHabit.xcdatamodeld in Sources */,
 				9AD57CA626D93CB500E08812 /* NegativeMainController.swift in Sources */,
 				9ADD166026D688FE001E736C /* HabitController.swift in Sources */,

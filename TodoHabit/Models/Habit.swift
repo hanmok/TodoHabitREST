@@ -40,3 +40,18 @@
 //    let startTime: String?
 //    let endTime: String?
 //}
+import Foundation
+
+
+struct Habit2 {
+    var title: String
+    var color: String
+    var onDates: [Int]?
+    
+    var habitAchievedDates: AchievedDates2
+    var habitAlarm: Alarm2?
+    var habitDates: StartEndDates2
+    
+    var habitGoal: Goal2?
+    var habitTime: OnTime2?
+}
