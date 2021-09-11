@@ -44,6 +44,7 @@
 		9ADD167826D6A78B001E736C /* AddHabitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD167726D6A78B001E736C /* AddHabitController.swift */; };
 		9ADD167A26D6B512001E736C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADD167926D6B512001E736C /* CustomButton.swift */; };
 		9AFB1F6426ECA7EA0086F9EA /* SubStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB1F6326ECA7EA0086F9EA /* SubStructs.swift */; };
+		9AFB1F8626ED004D0086F9EA /* AddHabitController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB1F8526ED004D0086F9EA /* AddHabitController2.swift */; };
 		DCE73BACB834DF19FD7948FF /* Pods_TodoHabit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4455510E93152162F620A63 /* Pods_TodoHabit.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		9ADD167726D6A78B001E736C /* AddHabitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitController.swift; sourceTree = "<group>"; };
 		9ADD167926D6B512001E736C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		9AFB1F6326ECA7EA0086F9EA /* SubStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubStructs.swift; sourceTree = "<group>"; };
+		9AFB1F8526ED004D0086F9EA /* AddHabitController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitController2.swift; sourceTree = "<group>"; };
 		D9646708317359677E61B4D6 /* Pods-TodoHabit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoHabit.release.xcconfig"; path = "Target Support Files/Pods-TodoHabit/Pods-TodoHabit.release.xcconfig"; sourceTree = "<group>"; };
 		E4455510E93152162F620A63 /* Pods_TodoHabit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoHabit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 				9A0214D126E7AE0A005FB99A /* AddNeHabitController.swift */,
 				9ADD167726D6A78B001E736C /* AddHabitController.swift */,
 				9AD57CA726D93EBD00E08812 /* AddTodoController.swift */,
+				9AFB1F8526ED004D0086F9EA /* AddHabitController2.swift */,
 			);
 			path = AddControllers;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				9AD57C8126D90E8E00E08812 /* TodoTableCell.swift in Sources */,
 				9AD57C8326D91A4400E08812 /* TodoViewModel.swift in Sources */,
 				9AD57C7126D827FE00E08812 /* CalenderController.swift in Sources */,
+				9AFB1F8626ED004D0086F9EA /* AddHabitController2.swift in Sources */,
 				9ADD167426D697E6001E736C /* HabitHeader.swift in Sources */,
 				9AD57C7B26D8881900E08812 /* CalendarVC2.swift in Sources */,
 				9ADD167826D6A78B001E736C /* AddHabitController.swift in Sources */,

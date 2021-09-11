@@ -48,7 +48,7 @@ class ColorButton: UIButton {
 
 
 class CustomLabel: UILabel {
-    init(textColor: UIColor = .black, text: String, alignment: NSTextAlignment = .left) {
+    init(textColor: UIColor = .black, text: String = "", alignment: NSTextAlignment = .left) {
         super.init(frame: .zero)
         self.textColor = textColor
         self.text = text

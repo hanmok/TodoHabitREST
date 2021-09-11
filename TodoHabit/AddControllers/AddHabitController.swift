@@ -23,7 +23,8 @@ class AddHabitController: UIViewController {
     }()
     
     
-    private let titleLabel = CustomLabel(text: "습관 이름 :")
+//    private let titleLabel = CustomLabel(text: "습관 이름 :")
+    private let titleLabel = CustomLabel()
     
     private let titleTextField: UITextField = {
         let tf = UITextField()
@@ -33,7 +34,8 @@ class AddHabitController: UIViewController {
     }()
     
     
-    private let onDateLabel = CustomLabel(text: "요일 선택 : ")
+//    private let onDateLabel = CustomLabel(text: "요일 선택 : ")
+    private let onDateLabel = CustomLabel()
     
     private let weekDays = CustomButton(with: "주중")
     private let weekends = CustomButton(with: "주말")
@@ -49,7 +51,8 @@ class AddHabitController: UIViewController {
     private let sat = CustomButton(with: "토")
     private let sun = CustomButton(with: "일")
     
-    private let colorLabel = CustomLabel(text: "색상")
+//    private let colorLabel = CustomLabel(text: "색상")
+    private let colorLabel = CustomLabel()
     
     private lazy var color0 : ColorButton = {
         let button = ColorButton(hexcolor: "#FF0000", tagInt: 0)
@@ -64,7 +67,8 @@ class AddHabitController: UIViewController {
     private lazy var color5 = ColorButton(hexcolor: "#00FFFF", tagInt: 5)
     
     
-    private let goalPeriodLabel = CustomLabel(text: "목표 기간 :")
+//    private let goalPeriodLabel = CustomLabel(text: "목표 기간 :")
+    private let goalPeriodLabel = CustomLabel()
     
     private let goalPeriodTF: UITextField = {
         let tf = UITextField()
@@ -112,11 +116,8 @@ class AddHabitController: UIViewController {
         return view
     }()
     
-    private let alarmLabel: UILabel = {
-        let label = UILabel()
-        label.text = "알람"
-        return label
-    }()
+//    private let alarmLabel = CustomLabel(text: "알람")
+    private let alarmLabel = CustomLabel()
     
     private let alarmTimePicker: UIDatePicker = {
         let picker = UIDatePicker()
@@ -124,7 +125,9 @@ class AddHabitController: UIViewController {
         return picker
     }()
     
-    private let goalLabel = CustomLabel(text: "목표")
+//    private let goalLabel = CustomLabel(text: "목표")
+    private let goalLabel = CustomLabel()
+    
     private let goalRepPre = CustomLabel(text: "횟수")
     private let goalDurationPre = CustomLabel(text: "시간")
     
@@ -152,7 +155,8 @@ class AddHabitController: UIViewController {
     private let goalRepSuffix = CustomLabel(text: "회")
     private let goalDurationSuffix = CustomLabel(text: "분")
     
-    private let routineTimeLabel = CustomLabel(text: "시간")
+//    private let routineTimeLabel = CustomLabel(text: "시간")
+    private let routineTimeLabel = CustomLabel()
     
     private let startTimePicker: UIDatePicker = {
         let picker = UIDatePicker()

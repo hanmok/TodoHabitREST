@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-let horPadding: CGFloat = 20
+//let horPadding: CGFloat = 20
+let horPadding: CGFloat = 50
 let smallSpacing: CGFloat = 10
 let bigSpacing: CGFloat = 25
 
