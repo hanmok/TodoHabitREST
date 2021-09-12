@@ -180,30 +180,30 @@ extension HabitController: HabitFooterDelegate {
     func presentAddController() {
 //        print("from HabitController! ")
         let addHabitController = AddHabitController()
-        addHabitController.delegate = self
+//        addHabitController.delegate = self
         self.present(addHabitController, animated: true, completion: nil)
     }
 }
 
 
-extension HabitController: AddHabitDelegate {
-    func addHabit(title: String, color: String, dates: [Int], createdAt: Date, datesDuration: Int, goalDuration: Int?, goalRep: Int?, startsAt: String?, endsAt: String?) {
-        print("this is my test code")
-    }
-    
-    func addHabit(with title: String, dates: [Int], goal: Int) {
-        print("addHabit in HabitController")
-
-        let newHabit = Habit(context: self.context)
-//        newHabit.createdAt = Date()
-//        newHabit.goalPeriod = Int64(goal)
-//        newHabit.onDates = dates
-        newHabit.title = title
-        
-        fetchHabits()
-       
-    }
-}
+//extension HabitController: AddHabitDelegate {
+//    func addHabit(title: String, color: String, dates: [Int], createdAt: Date, datesDuration: Int, goalDuration: Int?, goalRep: Int?, startsAt: String?, endsAt: String?) {
+//        print("this is my test code")
+//    }
+//
+//    func addHabit(with title: String, dates: [Int], goal: Int) {
+//        print("addHabit in HabitController")
+//
+//        let newHabit = Habit(context: self.context)
+////        newHabit.createdAt = Date()
+////        newHabit.goalPeriod = Int64(goal)
+////        newHabit.onDates = dates
+//        newHabit.title = title
+//
+//        fetchHabits()
+//
+//    }
+//}
 
 extension HabitController: HabitHeaderDelegate {
     func searchHabit() {
