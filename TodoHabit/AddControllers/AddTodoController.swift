@@ -16,24 +16,6 @@ class AddTodoViewController: UIViewController {
     
     weak var delegate: AddTodoViewControllerDelegate?
     
-//    let enterTodoLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "Todo"
-//        label.textColor = .black
-//        label.textAlignment = .center
-////        label.layer.cornerRadius = 20
-////        label.roundCorners(corners: [.topLeft, .topRight], radius: 20)
-//        label.backgroundColor = UIColor(white: 0.6, alpha: 0.9)
-////        label.backgroundColor = .red
-//        return label
-//    }()
-    
-//    private let controllerLabel: UILabel = {
-//        let label = UILabel()
-//        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-//        label.text = "할일 만들기"
-//        return label
-//    }()
     
     private let titleLabel = CustomLabel(text: "할일 이름 :")
     
@@ -45,10 +27,6 @@ class AddTodoViewController: UIViewController {
         
         return tf
     }()
-    
-//    private let dateLabel = CustomLabel(text: "일자 :")
-    
-   
     
     private let datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
@@ -74,49 +52,8 @@ class AddTodoViewController: UIViewController {
         return view
     }()
     
-//    private let goalLabel = CustomLabel(text: "목표")
-//
-//    private let goalRepPre = CustomLabel(text: "횟수")
-//    private let goalDurationPre = CustomLabel(text: "시간")
-//
-//    private let goalRepTF : UITextField = {
-//        let tf = UITextField()
-//        tf.placeholder = "0 "
-//        tf.keyboardType = .numberPad
-//        tf.backgroundColor = UIColor(white: 0.5, alpha: 0.2)
-//        tf.layer.cornerRadius = 10
-//        tf.textAlignment = .right
-//        return tf
-//    }()
-//
-//    private let goalDurationTF : UITextField = {
-//        let tf = UITextField()
-//        tf.placeholder = "0 "
-//        tf.keyboardType = .numberPad
-//        tf.backgroundColor = UIColor(white: 0.5, alpha: 0.2)
-//        tf.layer.cornerRadius = 10
-//        tf.textAlignment = .right
-//        return tf
-//    }()
-//
-//    private let goalRepSuffix = CustomLabel(text: "회")
-//    private let goalDurationSuffix = CustomLabel(text: "분")
     private let goalView = GoalView()
-//    private let routineTimeLabel = CustomLabel(text: "시간")
-//    private let startEndTimeLabel = CustomLabel(text: "시간")
-//
-//    private let startTimePicker: UIDatePicker = {
-//        let picker = UIDatePicker()
-//        picker.datePickerMode = .time
-//        return picker
-//    }()
-//    private let tilde = CustomLabel(textColor: .black, text: "~", alignment: .center)
-//
-//    private let endTimePicker: UIDatePicker = {
-//        let picker = UIDatePicker()
-//        picker.datePickerMode = .time
-//        return picker
-//    }()
+    
     private let routineTimeView = RoutineTimeView()
     
     private let alarmLabel: UILabel = {
@@ -174,23 +111,10 @@ class AddTodoViewController: UIViewController {
         configureUI()
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        guard let titleText = titleTextField.text else {return}
-//        delegate?.addTodo(title: titleText)
-//    }
-//    override func viewDidDisappear(_ animated: Bool) {
-//        guard let titleText = titleTextField.text else {return}
-//        delegate?.addTodo(title: titleText)
-//    }
-    
     func configureUI() {
         view.backgroundColor = .white
-//        view.addSubview(controllerLabel)
-        
-//        view.addSubview(titleLabel)
         view.addSubview(titleTextField)
         
-//        view.addSubview(dateLabel)
         view.addSubview(datePicker)
         
         view.addSubview(dueDateBox)
@@ -198,41 +122,14 @@ class AddTodoViewController: UIViewController {
         
         view.addSubview(horizontalLine)
         
-//        view.addSubview(goalLabel)
-//
-//        view.addSubview(goalRepPre)
-//        view.addSubview(goalRepTF)
-//        view.addSubview(goalRepSuffix)
-//
-//        view.addSubview(goalDurationPre)
-//        view.addSubview(goalDurationTF)
-//        view.addSubview(goalDurationSuffix)
-//
-//        view.addSubview(startEndTimeLabel)
-//
-//        view.addSubview(startTimePicker)
-//        view.addSubview(tilde)
-//        view.addSubview(endTimePicker)
+        
         view.addSubview(goalView)
         view.addSubview(routineTimeView)
         
-//        view.addSubview(alarmLabel)
         view.addSubview(alarmTimePicker)
-
-//        controllerLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 40)
-//        controllerLabel.centerX(inView: view)
-//        controllerLabel.setDimensions(height: 40, width: 100)
-        
-//        titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, paddingTop: 35, paddingLeft: 20)
-//        titleLabel.setDimensions(height: 40, width: 80)
         
         titleTextField.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 70, paddingLeft: horPadding, paddingRight: horPadding)
         titleTextField.setHeight(40)
-        
-//        dateLabel.anchor(top: titleLabel.bottomAnchor, left: titleLabel.leftAnchor, right: titleLabel.rightAnchor, paddingTop: 15)
-//        dateLabel.setHeight(30)
-        
-//        datePicker.anchor(top: titleTextField.bottomAnchor, left: titleTextField.leftAnchor, right: titleTextField.rightAnchor, paddingTop: 15)
         
         datePicker.anchor(top: titleTextField.bottomAnchor, left: titleTextField.leftAnchor, paddingTop: 15)
         datePicker.setDimensions(height: 30, width: 120)
@@ -262,7 +159,6 @@ class AddTodoViewController: UIViewController {
         
         confirmStackView.anchor( left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 50, paddingBottom: 50, paddingRight: 50)
         confirmStackView.setHeight(35)
-        
         
     }
 }

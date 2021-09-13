@@ -14,3 +14,4 @@ let smallSpacing: CGFloat = 10
 let bigSpacing: CGFloat = 25
 
 let dayInSec: TimeInterval = 86400
+let customButtonColor = UIColor(white: 0.7, alpha: 0.3)

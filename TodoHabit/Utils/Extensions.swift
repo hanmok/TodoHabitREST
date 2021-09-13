@@ -103,12 +103,15 @@ extension UIButton {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.cornerRadius = 10
-        print("circle: \(circle)")
-        if circle {
-            self.layer.cornerRadius = self.frame.height / 2
-        } else {
-            self.layer.cornerRadius = 10
-        }
+        
+//        print("circle: \(circle)")
+//        if circle {
+//            self.layer.cornerRadius = self.frame.height / 2
+//            print("self.frame.height: \(self.frame.height)") // 0
+//        } else {
+//            self.layer.cornerRadius = 10
+//            print("self.frame.height: \(self.frame.height)") // 0
+//        }
 //        self.layer.cornerRadius = circle ? self.frame.height / 2 : 30
 //        self.layer.cornerRadius = 30
     }

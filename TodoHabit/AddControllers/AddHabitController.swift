@@ -76,7 +76,7 @@ class AddHabitController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = UIColor(white: 0.7, alpha: 0.3)
         button.makeCornerRadius(circle: false)
-//        button.addTarget(self, action: #selector(makeHabit), for: .touchUpInside)
+        button.addTarget(self, action: #selector(makeHabit), for: .touchUpInside)
         return button
     }()
     
@@ -99,6 +99,14 @@ class AddHabitController: UIViewController {
     
     @objc func cancelPressed() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func makeHabit() {
+        print("makeHabit pressed !")
+        
+
+        print("\(daysView.checkedDays)")
+        print("\(colorsView.pickedColor)")
     }
     
     override func viewDidLoad() {
