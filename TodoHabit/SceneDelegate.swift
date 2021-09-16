@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = MainTabController()
 //        window?.rootViewController = AddHabitController()
 //        let vc = MainTabController()
-        let vc = AddHabitController()
+//        let vc = AddHabitController()
 //        let vc = AddHabitController2()
 //        let vc = AddTodoViewController()
 //        let vc = AddNeHabitController()
@@ -30,6 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let vc = CalendarController()
 //        let vc = CalendarVC2()
 //        let vc = UINavigationController(rootViewController: CalendarController())
+        let vc = APITestViewController()
         window?.rootViewController = vc
 //        window?.rootViewController = UINavigationController(rootViewController: LoginController())
 //        window?.rootViewController = MainTapController

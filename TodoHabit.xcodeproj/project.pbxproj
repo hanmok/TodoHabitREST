@@ -46,6 +46,8 @@
 		9AFB1F8626ED004D0086F9EA /* AddHabitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB1F8526ED004D0086F9EA /* AddHabitController.swift */; };
 		9AFB1F8826EE11930086F9EA /* SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB1F8726EE11930086F9EA /* SubViews.swift */; };
 		9AFB1F8A26EE4E590086F9EA /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB1F8926EE4E590086F9EA /* InputTextView.swift */; };
+		9AFB1FAC26F393440086F9EA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB1FAB26F393440086F9EA /* Service.swift */; };
+		9AFB1FAF26F398A00086F9EA /* APITestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB1FAE26F398A00086F9EA /* APITestViewController.swift */; };
 		DCE73BACB834DF19FD7948FF /* Pods_TodoHabit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4455510E93152162F620A63 /* Pods_TodoHabit.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 		9AFB1F8526ED004D0086F9EA /* AddHabitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitController.swift; sourceTree = "<group>"; };
 		9AFB1F8726EE11930086F9EA /* SubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViews.swift; sourceTree = "<group>"; };
 		9AFB1F8926EE4E590086F9EA /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
+		9AFB1FAB26F393440086F9EA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		9AFB1FAE26F398A00086F9EA /* APITestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITestViewController.swift; sourceTree = "<group>"; };
 		D9646708317359677E61B4D6 /* Pods-TodoHabit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoHabit.release.xcconfig"; path = "Target Support Files/Pods-TodoHabit/Pods-TodoHabit.release.xcconfig"; sourceTree = "<group>"; };
 		E4455510E93152162F620A63 /* Pods_TodoHabit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoHabit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -134,7 +138,7 @@
 				9ADD167126D694B5001E736C /* Todo.swift */,
 				9ADD166926D68F04001E736C /* Habit.swift */,
 				9A9418AF26DFBF4E00AE6A86 /* NegativeHabit.swift */,
-				9AFB1F6326ECA7EA0086F9EA /* SubStructs.swift */,
+				9AFB1FAD26F3960D0086F9EA /* SubModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +208,8 @@
 				9ADD165226D68792001E736C /* Assets.xcassets */,
 				9ADD165426D68792001E736C /* LaunchScreen.storyboard */,
 				9ADD164C26D68790001E736C /* Main.storyboard */,
+				9AFB1FAE26F398A00086F9EA /* APITestViewController.swift */,
+				9AFB1FAB26F393440086F9EA /* Service.swift */,
 				9ADD165726D68792001E736C /* Info.plist */,
 				9ADD164F26D68790001E736C /* TodoHabit.xcdatamodeld */,
 			);
@@ -252,6 +258,14 @@
 				9ADD166126D68927001E736C /* TodoController.swift */,
 			);
 			path = Todos;
+			sourceTree = "<group>";
+		};
+		9AFB1FAD26F3960D0086F9EA /* SubModels */ = {
+			isa = PBXGroup;
+			children = (
+				9AFB1F6326ECA7EA0086F9EA /* SubStructs.swift */,
+			);
+			path = SubModels;
 			sourceTree = "<group>";
 		};
 		FEB06E34831AB60C2ACFADFB /* Frameworks */ = {
@@ -382,6 +396,7 @@
 				9AD57CA826D93EBD00E08812 /* AddTodoController.swift in Sources */,
 				9ADD166426D6895A001E736C /* SettingsController.swift in Sources */,
 				9AFB1F6426ECA7EA0086F9EA /* SubStructs.swift in Sources */,
+				9AFB1FAC26F393440086F9EA /* Service.swift in Sources */,
 				9ADD165126D68790001E736C /* TodoHabit.xcdatamodeld in Sources */,
 				9AFB1F8A26EE4E590086F9EA /* InputTextView.swift in Sources */,
 				9AD57CA626D93CB500E08812 /* NegativeMainController.swift in Sources */,
@@ -407,6 +422,7 @@
 				9AFB1F8826EE11930086F9EA /* SubViews.swift in Sources */,
 				9ADD167A26D6B512001E736C /* CustomButton.swift in Sources */,
 				9AD57C7F26D908E200E08812 /* TodoMainController.swift in Sources */,
+				9AFB1FAF26F398A00086F9EA /* APITestViewController.swift in Sources */,
 				9AD57C7726D8282600E08812 /* CalendarView.swift in Sources */,
 				9ADD164926D68790001E736C /* SceneDelegate.swift in Sources */,
 				9A0214D226E7AE0A005FB99A /* AddNeHabitController.swift in Sources */,

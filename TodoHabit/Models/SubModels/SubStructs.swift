@@ -12,7 +12,7 @@ struct AchievedDates2 {
     let dates: [Int]
 }
 
-struct Alarm2 {
+struct Alarm2: Decodable{
     let isAlarmOn: Bool
     let alarmTime: Date
 }
@@ -23,12 +23,12 @@ struct StartEndDates2 {
     let endAt: Int?
 }
 
-struct Goal2 {
+struct Goal2: Decodable {
     let goalDuration: Int
     let goalRep: Int
 }
 
-struct OnTime2 {
+struct OnTime2: Decodable {
     let endsAt: String
     let startsAt: String
 }

@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Todo2 {
-    var title: String
-    var onDate: Date
+struct Todo2 : Decodable{
+    var title: String?
+//    var onDate: Date
+    var onDate: String?
     
-    var todoAlarm: Alarm2?
-    var todoGoal: Goal2?
-    var todoTime: OnTime2?
+//    var todoAlarm: Alarm2?
+//    var todoGoal: Goal2?
+//    var todoTime: OnTime2?
 }
