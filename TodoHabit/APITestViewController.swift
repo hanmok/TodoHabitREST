@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class APITestViewController: UIViewController {
     //    let service = Service()
@@ -29,31 +30,73 @@ class APITestViewController: UIViewController {
     
     @objc func button1Pressed() {
         fetchTodos()
-//        Service.shared.requestGet(url: <#T##String#>, completionHandler: <#T##(Bool, Any) -> Void#>)
-        
     }
+    
     // this is working..
     func fetchTodos() {
-        Service.shared.fetchTodos { result in
-            switch result {
-            case .failure(let error):
-                print("error :\(error)")
-            case .success(let todos):
-                self.todos = todos
+        // working code
+//        Service.shared.getTodos { result in
+//            switch result {
+//            case .failure(let error):
+//                print("error :\(error)")
+//            case .success(let todos):
+//                self.todos = todos
+//            }
+//        }
+        //
+//        print("todo : \(todos)")
+        
+        // it works !!
+        AF.request("http://localhost:5000/todos").response { response in
+            let newData = String(data: response.data!, encoding: .utf8)
+            
+            do {
+                try self.todos = try JSONDecoder().decode([Todo2].self, from: newData!.data(using: .utf8)!)
+            } catch {
+                print("failed to decode!")
             }
-        }
-        print("todo : \(todos)")
-    }
-    // this is not working. 
-    func fetchTodos2() {
-        Service.shared.requestGet { success, data in
-            if success {
-print("data : \(data)")
-            }
+            print("todo: \(self.todos)")
+            print("count :\(self.todos.count)")
         }
     }
     
+    // this is not working. 
+    func fetchTodos2() {
+        
+    }
+    
     @objc func button2Pressed() {
+        print("button2 pressed")
+        // test 1
+//        Service.shared.createPost(title: "testFromSwift", onDate: "dateFromSwift") { error in
+//            if error != nil {
+//                print("error ! :\(String(describing: error))")
+//            } else {
+//                print("sucessfully postsed !")
+//            }
+//        }
+        
+        // test 2
+//        Service.shared.fromStack()
+        
+        // test 3
+//        Service.shared.requestPost { bool in
+//            bool ? print("success!") : print("fail!")
+//        }
+
+        // test 4
+        // works
+        Service.shared.postTodoAF(onDate: "testOnDateSwift2", title: "testTitleSwift2")
+        
+        // test 5
+        
+//        Service.shared.createPost2(title: "5th test title", onDate: "th test onDate") { error in
+//            if error != nil {
+//                print("error!")
+//            } else {
+//                print("success!")
+//            }
+//        }
     }
     
     

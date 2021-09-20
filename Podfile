@@ -8,5 +8,5 @@ target 'TodoHabit' do
   # Pods for TodoHabit
 	pod 'FSCalendar'
 	pod 'UIColor_Hex_Swift', '~> 5.1.7'
-
+	pod 'Alamofire', '~> 5.4'
 end

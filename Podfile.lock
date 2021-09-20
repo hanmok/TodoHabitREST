@@ -1,20 +1,24 @@
 PODS:
+  - Alamofire (5.4.3)
   - FSCalendar (2.8.2)
   - UIColor_Hex_Swift (5.1.7)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.4)
   - FSCalendar
   - UIColor_Hex_Swift (~> 5.1.7)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - FSCalendar
     - UIColor_Hex_Swift
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   UIColor_Hex_Swift: 31cd3e47440f07a20d2503a36bb0437a445b3c29
 
-PODFILE CHECKSUM: 3f6ee2a1b182f731fea7dff8d6f1016f1fcd22a6
+PODFILE CHECKSUM: 7b591686b38b74060e1fcbbf3a5b8d669ad04d3b
 
 COCOAPODS: 1.10.2
