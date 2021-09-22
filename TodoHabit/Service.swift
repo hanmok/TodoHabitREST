@@ -10,11 +10,73 @@ class Service: NSObject {
     
     let targetUrl = "http://localhost:5000/todos"
     
+  
+    
+    
+    // MARK: - POST REQUEST
+    
+    func postTodoAF(onDate: String, title: String) {
+        AF.request("\(baseUrl)/todos", method: .post, parameters: ["title": title, "onDate": onDate ], encoding: URLEncoding.httpBody, headers: HTTPHeaders.init()).responseJSON { response in
+            print("addtodo, \(response)")
+        }
+    }
+    
+    
+    // DELETE REQUEST
+  
+   
+    func deleteOneTodo(id: String) {
+        AF.request(targetUrl + "/" + id, method: .delete,   headers: HTTPHeaders.init()).responseData { response in
+            print("response: \(response)")
+        }
+    }
+
+    func deleteTodosAF() {
+        
+        AF.request(targetUrl, method: .delete,   headers: HTTPHeaders.init()).responseData { response in
+            print("response: \(response)")
+        }
+    }
+    
+
+    func patchOne(id: String, newTitle: String, newOnDate: String) {
+        AF.request("\(baseUrl)/todos/\(id)", method: .patch, parameters: ["title": newTitle, "onDate": newOnDate ], encoding: URLEncoding.httpBody, headers: HTTPHeaders.init()).responseJSON { response in
+            print("patchOne, \(response)")
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // MARK: - trashes. left just in case.
+    
     // MARK: - GET REQUEST
+
+    func getTodos1() {
+        
+            // working code but delegate pattern needed
+    //        Service.shared.getTodos { result in
+    //            switch result {
+    //            case .failure(let error):
+    //                print("error :\(error)")
+    //            case .success(let todos):
+    //                self.todos = todos
+    //            }
+    //        }
+            //
+    //        print("todo : \(todos)")
+        
+    }
     
     // working code
-    
-    func getTodos(completion : @escaping (Result<[Todo2], Error>) -> ()) {
+
+    func getTodos2(completion : @escaping (Result<[Todo2], Error>) -> ()) {
         //        guard let url = URL(string: "\(baseUrl)/todos") else { return }
         guard let url = URL(string: targetUrl) else { return }
         
@@ -38,9 +100,9 @@ class Service: NSObject {
             }
         }.resume()
     }
-    
+
     // not working code
-    func requestGet( completionHandler: @escaping (Bool, Any) -> Void) {
+    func getTodos3( completionHandler: @escaping (Bool, Any) -> Void) {
         //        guard let url = URL(string: "\(baseUrl)/todos") else {
         guard let url = URL(string: targetUrl) else {
             print("cannot create url")
@@ -76,32 +138,61 @@ class Service: NSObject {
             completionHandler(true, output)
         }.resume()
     }
+
+
+
+    /*
+     AF code cases
+     
+     //        AF.request(<#T##convertible: URLConvertible##URLConvertible#>)
+     //        AF.request(<#T##convertible: URLConvertible##URLConvertible#>)
+     //        AF.request(<#T##convertible: URLRequestConvertible##URLRequestConvertible#>)
+     //        AF.request(<#T##convertible: URLRequestConvertible##URLRequestConvertible#>, interceptor: <#T##RequestInterceptor?#>)
+     
+     
+     //        AF.request(<#T##convertible: URLConvertible##URLConvertible#>, method: <#T##HTTPMethod#>, parameters: <#T##Encodable?#>, encoder: <#T##ParameterEncoder#>, headers: <#T##HTTPHeaders?#>, interceptor: <#T##RequestInterceptor?#>, requestModifier: <#T##Session.RequestModifier?##Session.RequestModifier?##(inout URLRequest) throws -> Void#>)
+     */
+
+
+/*
+     post cases
+     
+     // test 1
+//        Service.shared.createPost(title: "testFromSwift", onDate: "dateFromSwift") { error in
+//            if error != nil {
+//                print("error ! :\(String(describing: error))")
+//            } else {
+//                print("sucessfully postsed !")
+//            }
+//        }
+     
+     // test 2
+//        Service.shared.fromStack()
+     
+     // test 3
+//        Service.shared.requestPost { bool in
+//            bool ? print("success!") : print("fail!")
+//        }
+
+     // test 4
+     // works
+     Service.shared.postTodoAF(onDate: "testOnDateSwift2", title: "testTitleSwift2")
+     
+     // test 5
+     
+//        Service.shared.createPost2(title: "5th test title", onDate: "th test onDate") { error in
+//            if error != nil {
+//                print("error!")
+//            } else {
+//                print("success!")
+//            }
+//        }
+     
+     // test 6
+//        Service.shared.testPostCode()
+ }
+     */
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    func getTodosAF() {
-        //        AF.request("\(baseUrl)/todos") { response in
-        //            print("response : \(response)")
-        //
-        //
-        //        }
-        //        AF.request(
-        //    }
-        
-    }
-    
-    
-    
-    
-    
-    // MARK: - POST REQUEST
     
     func createPost(title: String, onDate: String, completion: @escaping (Error?) -> ()) {
         guard let url = URL(string: "\(baseUrl)/todos") else { return }
@@ -307,26 +398,6 @@ class Service: NSObject {
         }.resume()
     }
     
-    // only it works fine
-    func postTodoAF(onDate: String, title: String) {
-        
-        
-        
-        // this is working code
-        AF.request("\(baseUrl)/todos", method: .post, parameters: ["title": title, "onDate": onDate ], encoding: URLEncoding.httpBody, headers: HTTPHeaders.init()).responseJSON { response in
-            print("addtodo, \(response)")
-        }
-        
-        
-        // original from note app, not working
-        //        AF.request("\(baseUrl)/todos", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": onDate ]).responseJSON { response in
-        //            print("addNote, \(response)")
-        //        }
-        
-    }
-    
-    
-    
     
     func postRequestFromStackoverflow() {
         let url = URL(string: "\(baseUrl)/todos")!
@@ -419,9 +490,6 @@ class Service: NSObject {
         task.resume()
     }
     
-    // DELETE REQUEST
-  
-    // works fine
     func deleteOne(id: String, completion: @escaping (Error?) -> ()) {
         guard let url = URL(string: "\(baseUrl)/todos/\(id)") else { return }
         
@@ -445,49 +513,11 @@ class Service: NSObject {
             }
         }.resume()
     }
-
-    
-    // throw error but works..
-    func deleteTodosAF() {
-        
-        AF.request(targetUrl, method: .delete, parameters: nil, encoding: URLEncoding.httpBody, headers: nil).responseJSON { response in
-            print("response: \(response)")
-            }
-    }
-
-    // not working
-    func deleteMethod() {
-
-        AF.request(targetUrl, method: .delete, parameters: nil, headers: nil).validate(statusCode: 200 ..< 299).responseJSON { AFdata in
-            do {
-                guard let jsonObject = try JSONSerialization.jsonObject(with: AFdata.data!) as? [String: Any] else {
-                    print("Error: Cannot convert data to JSON object")
-                    return
-                }
-                guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
-                    print("Error: Cannot convert JSON object to Pretty JSON data")
-                    return
-                }
-                guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
-                    print("Error: Could print JSON in String")
-                    return
-                }
-
-                print(prettyPrintedJson)
-            } catch {
-                print("Error: Trying to convert JSON data to string")
-                return
-            }
-        }
-    }
     
     
-    
-    // test delete code
     func deleteAllTodos() {
         let url = URL(string: "\(baseUrl)/todos")!
         var request = URLRequest(url: url)
-        //        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "DELETE"
         
         do {
@@ -527,29 +557,33 @@ class Service: NSObject {
         
         task.resume()
     }
-    
-    
-    func patchOne(id: String, newTitle: String, newOnDate: String) {
-        AF.request("\(baseUrl)/todos\(id)", method: .patch, parameters: ["title": newTitle, "onDate": newOnDate ], encoding: URLEncoding.httpBody, headers: HTTPHeaders.init()).responseJSON { response in
-            print("patchOne, \(response)")
+
+    // not working
+    func deleteMethod() {
+
+        AF.request(targetUrl, method: .delete, parameters: nil, headers: nil).validate(statusCode: 200 ..< 299).responseJSON { AFdata in
+            do {
+                guard let jsonObject = try JSONSerialization.jsonObject(with: AFdata.data!) as? [String: Any] else {
+                    print("Error: Cannot convert data to JSON object")
+                    return
+                }
+                guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
+                    print("Error: Cannot convert JSON object to Pretty JSON data")
+                    return
+                }
+                guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
+                    print("Error: Could print JSON in String")
+                    return
+                }
+
+                print(prettyPrintedJson)
+            } catch {
+                print("Error: Trying to convert JSON data to string")
+                return
+            }
         }
     }
     
 }
-
-
-
-/*
- AF code cases
- 
- //        AF.request(<#T##convertible: URLConvertible##URLConvertible#>)
- //        AF.request(<#T##convertible: URLConvertible##URLConvertible#>)
- //        AF.request(<#T##convertible: URLRequestConvertible##URLRequestConvertible#>)
- //        AF.request(<#T##convertible: URLRequestConvertible##URLRequestConvertible#>, interceptor: <#T##RequestInterceptor?#>)
- 
- 
- //        AF.request(<#T##convertible: URLConvertible##URLConvertible#>, method: <#T##HTTPMethod#>, parameters: <#T##Encodable?#>, encoder: <#T##ParameterEncoder#>, headers: <#T##HTTPHeaders?#>, interceptor: <#T##RequestInterceptor?#>, requestModifier: <#T##Session.RequestModifier?##Session.RequestModifier?##(inout URLRequest) throws -> Void#>)
- */
-
 
 

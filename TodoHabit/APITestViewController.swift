@@ -11,7 +11,7 @@ import Alamofire
 class APITestViewController: UIViewController {
     //    let service = Service()
     var todos: [Todo2] = []
-    
+    var todo = Todo()
     private let getOneBtn: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(getOneBtnPressed), for: .touchUpInside)
@@ -19,6 +19,7 @@ class APITestViewController: UIViewController {
         button.setTitleColor(.magenta, for: .normal)
         return button
     }()
+    
     
     private let getAllBtn: UIButton = {
         let button = UIButton()
@@ -64,28 +65,56 @@ class APITestViewController: UIViewController {
         return button
     }()
     
-    // works
+    
+    // MARK: - Actions
+    
     @objc func getOneBtnPressed() {
-        getOne()
+        getOneTodo()
     }
     
     @objc func getAllBtnPressed() {
-        fetchTodos()
+        getAllTodos()
+    }
+    
+    @objc func postBtnPressed() {
+        postOneTodo()
+    }
+    
+    
+    @objc func deleteOnePressed() {
+        deleteOneTodo()
+    }
+    
+    @objc func deleteAllPressed() {
+        deleteAllTodos()
+        
+    }
+    
+    @objc func patchBtnPressed() {
+        patchOneTodo()
+    }
+    
+    // MARK: - Helpers
+    
+    func getOneTodo() {
+        AF.request("http://localhost:5000/todos/614b423a799255beccc10a40").response { response in
+            let newData = String(data: response.data!, encoding: .utf8)
+            
+            do {
+                let newTodo = try JSONDecoder().decode(Todo2.self, from: newData!.data(using: .utf8)!)
+                //                self.todos.append(newTodo)
+//                self.todos.append(newTodo)
+                print("newTodo : \(newTodo)")
+            } catch {
+                print("failed to decode!")
+            }
+//            print("todo: \(self.todos)")
+//            print("count :\(self.todos.count)")
+        }
     }
     
     // this is working..
-    func fetchTodos() {
-        // working code
-//        Service.shared.getTodos { result in
-//            switch result {
-//            case .failure(let error):
-//                print("error :\(error)")
-//            case .success(let todos):
-//                self.todos = todos
-//            }
-//        }
-        //
-//        print("todo : \(todos)")
+    func getAllTodos() {
         
         // it works !!
         AF.request("http://localhost:5000/todos").response { response in
@@ -97,93 +126,31 @@ class APITestViewController: UIViewController {
                 print("failed to decode!")
             }
             print("todo: \(self.todos)")
-            print("count :\(self.todos.count)")
+            print("todoCount :\(self.todos.count)")
         }
     }
     
-    func getOne() {
-        AF.request("http://localhost:5000/todos/614b423a799255beccc10a40").response { response in
-            let newData = String(data: response.data!, encoding: .utf8)
-            
-            do {
-                let newTodo = try JSONDecoder().decode(Todo2.self, from: newData!.data(using: .utf8)!)
-//                self.todos.append(newTodo)
-                self.todos.append(newTodo)
-            } catch {
-                print("failed to decode!")
-            }
-            print("todo: \(self.todos)")
-            print("count :\(self.todos.count)")
-        }
-    }
     
-    // this is not working. 
-    func fetchTodos2() {
-        
+    func postOneTodo() {
+        Service.shared.postTodoAF(onDate: "testOnDateSwift4", title: "testTitleSwift44")
     }
-    
-    @objc func postBtnPressed() {
-        print("button2 pressed")
-        // test 1
-//        Service.shared.createPost(title: "testFromSwift", onDate: "dateFromSwift") { error in
-//            if error != nil {
-//                print("error ! :\(String(describing: error))")
-//            } else {
-//                print("sucessfully postsed !")
-//            }
-//        }
-        
-        // test 2
-//        Service.shared.fromStack()
-        
-        // test 3
-//        Service.shared.requestPost { bool in
-//            bool ? print("success!") : print("fail!")
-//        }
 
-        // test 4
-        // works
-        Service.shared.postTodoAF(onDate: "testOnDateSwift2", title: "testTitleSwift2")
-        
-        // test 5
-        
-//        Service.shared.createPost2(title: "5th test title", onDate: "th test onDate") { error in
-//            if error != nil {
-//                print("error!")
-//            } else {
-//                print("success!")
-//            }
-//        }
-        
-        // test 6
-//        Service.shared.testPostCode()
+    
+    func deleteOneTodo() {
+        Service.shared.deleteOneTodo(id: "614b4fac5b7fb541813e79ec")
     }
     
-    @objc func deleteAllPressed() {
-        print("deleteAllPressed")
-//        Service.shared.deleteMethod()
-        Service.shared.deleteAllTodos() // working
-//        Service.shared.deleteTodosAF() // throw error but it works .. what..?
+    func deleteAllTodos() {
+
+        Service.shared.deleteTodosAF()
     }
     
-    @objc func patchBtnPressed() {
-        print("patch pressed !")
-        Service.shared.patchOne(id: "61487bd1f00a038096df4f69", newTitle: "this is new title!", newOnDate: "new Date !!")
+    func patchOneTodo() {
+        Service.shared.patchOne(id: "614b4bf15b7fb541813e79b7", newTitle: "this is new title From Swift!", newOnDate: "new Date From Swift!!")
     }
     
-    @objc func deleteOnePressed() {
-        print("deleteOnePressed")
-        Service.shared.deleteOne(id: "614b423d799255beccc10a42") { error in
-            if error != nil {
-                print("error occured! \(error)")
-            } else {
-                print("successfully deleted on item !")
-            }
-        }
-    }
     
-    override func viewDidLoad() {
-        
+    func configureUI() {
         let getStackView = UIStackView(arrangedSubviews: [getOneBtn, getAllBtn])
         getStackView.axis = .horizontal
         getStackView.spacing = 20
@@ -206,5 +173,9 @@ class APITestViewController: UIViewController {
         stackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor)
     }
     
-    
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
+        configureUI()
+        
+    }
 }
