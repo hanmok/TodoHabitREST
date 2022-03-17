@@ -6,12 +6,26 @@ import Alamofire
 class Service: NSObject {
     static let shared = Service()
     
-    let baseUrl = "http://localhost:5000"
+    let baseUrl = "http://localhost:5001"
     
-    let targetUrl = "http://localhost:5000/todos"
+    let targetUrl = "http://localhost:5001/todos"
     
   
     
+    // MARK: - GET REQUEST
+    
+    // new
+    func getTodoAF(id: String, handler: @escaping (Todo2) -> () ) {
+        AF.request("\(baseUrl)/\(id)").response { response in
+            print(response)
+        }
+    }
+    // new
+    func getAllTodosAF() {
+        AF.request("\(baseUrl)/todos").response { response in
+            print(response)
+        }
+    }
     
     // MARK: - POST REQUEST
     
@@ -20,6 +34,20 @@ class Service: NSObject {
             print("addtodo, \(response)")
         }
     }
+    
+    // new
+    func putOne(id: String, newTitle: String, newOnDate: String) {
+        AF.request("\(baseUrl)/todos/\(id)", method: .put, parameters: ["title": newTitle, "onDate": newOnDate ], encoding: URLEncoding.httpBody, headers: HTTPHeaders.init()).responseJSON { response in
+            print("patchOne, \(response)")
+        }
+    }
+    
+    func patchOne(id: String, newTitle: String, newOnDate: String) {
+        AF.request("\(baseUrl)/todos/\(id)", method: .patch, parameters: ["title": newTitle, "onDate": newOnDate ], encoding: URLEncoding.httpBody, headers: HTTPHeaders.init()).responseJSON { response in
+            print("patchOne, \(response)")
+        }
+    }
+    
     
     
     // DELETE REQUEST
@@ -39,11 +67,7 @@ class Service: NSObject {
     }
     
 
-    func patchOne(id: String, newTitle: String, newOnDate: String) {
-        AF.request("\(baseUrl)/todos/\(id)", method: .patch, parameters: ["title": newTitle, "onDate": newOnDate ], encoding: URLEncoding.httpBody, headers: HTTPHeaders.init()).responseJSON { response in
-            print("patchOne, \(response)")
-        }
-    }
+    
     
     
     
@@ -77,13 +101,12 @@ class Service: NSObject {
     // working code
 
     func getTodos2(completion : @escaping (Result<[Todo2], Error>) -> ()) {
-        //        guard let url = URL(string: "\(baseUrl)/todos") else { return }
         guard let url = URL(string: targetUrl) else { return }
         
         var fetchPostsRequest = URLRequest(url: url)
         fetchPostsRequest.httpMethod = "GET"
         fetchPostsRequest.setValue("application/json", forHTTPHeaderField: "Content-type")
-        
+
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
             DispatchQueue.main.async {
                 if let err = err {
@@ -243,8 +266,6 @@ class Service: NSObject {
         do {
             let data = try JSONSerialization.data(withJSONObject: params, options: .init())
             urlRequest.httpBody = data
-            
-            
             //            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
             urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             
@@ -583,7 +604,6 @@ class Service: NSObject {
             }
         }
     }
-    
 }
 
 

@@ -97,7 +97,7 @@ class APITestViewController: UIViewController {
     // MARK: - Helpers
     
     func getOneTodo() {
-        AF.request("http://localhost:5000/todos/614b423a799255beccc10a40").response { response in
+        AF.request("http://localhost:5001/todos/614b423a799255beccc10a40").response { response in
             let newData = String(data: response.data!, encoding: .utf8)
             
             do {
@@ -117,7 +117,7 @@ class APITestViewController: UIViewController {
     func getAllTodos() {
         
         // it works !!
-        AF.request("http://localhost:5000/todos").response { response in
+        AF.request("http://localhost:5001/todos").response { response in
             let newData = String(data: response.data!, encoding: .utf8)
             
             do {
