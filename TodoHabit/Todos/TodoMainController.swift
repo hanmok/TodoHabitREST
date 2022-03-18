@@ -101,14 +101,17 @@ class TodoMainController: UIViewController {
         
         
         view.addSubview(todoTableView)
+        
         todoTableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor,right: view.rightAnchor, paddingTop: 50, paddingLeft: 50,paddingBottom: 100 ,paddingRight: 50)
         
         
         view.addSubview(addTodoButton)
+        
         addTodoButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 50, paddingRight: 20)
         addTodoButton.setDimensions(height: 50, width: 50)
         
         view.addSubview(viewSizeView)
+        
         viewSizeView.fillSuperview()
     }
     

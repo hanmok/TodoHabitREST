@@ -141,7 +141,6 @@ extension TodoView {
             self.removeTodo(index: indexPath.row)
             completionHandler(true)
             
-            
         }
         
         edit.backgroundColor = .clear

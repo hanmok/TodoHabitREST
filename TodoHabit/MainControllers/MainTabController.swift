@@ -30,11 +30,14 @@ class MainTabController: UITabBarController {
         
         let habit = templateNavigationController(unselectedImage: UIImage(systemName: "arrow.triangle.2.circlepath")!, selectedImage: UIImage(systemName: "arrow.triangle.2.circlepath")!, rootViewController: HabitController(collectionViewLayout: layout))
        
-        let todo = templateNavigationController(unselectedImage: UIImage(systemName: "list.bullet")!, selectedImage: UIImage(systemName: "list.bullet")!, rootViewController: TodoMainController())
+//        let todo = templateNavigationController(unselectedImage: UIImage(systemName: "list.bullet")!, selectedImage: UIImage(systemName: "list.bullet")!, rootViewController: TodoMainController())
+        let todo = templateNavigationController(unselectedImage: UIImage(systemName: "list.bullet")!, selectedImage: UIImage(systemName: "list.bullet")!, rootViewController: TodoController())
         
         let calendar = templateNavigationController(unselectedImage: UIImage(systemName: "calendar")!, selectedImage: UIImage(systemName: "calendar")!, rootViewController: CalendarMainController())
         
-        let settings = templateNavigationController(unselectedImage: UIImage(systemName: "gear")!, selectedImage: UIImage(systemName: "gear")!, rootViewController: SettingsController())
+//        let settings = templateNavigationController(unselectedImage: UIImage(systemName: "gear")!, selectedImage: UIImage(systemName: "gear")!, rootViewController: SettingsController())
+        
+        let settings = templateNavigationController(unselectedImage: UIImage(systemName: "gear")!, selectedImage: UIImage(systemName: "gear")!, rootViewController: APITestViewController())
         
         viewControllers = [negative, habit, todo, calendar, settings]
         

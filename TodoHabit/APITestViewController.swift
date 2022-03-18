@@ -69,15 +69,38 @@ class APITestViewController: UIViewController {
     // MARK: - Actions
     
     @objc func getOneBtnPressed() {
-        getOneTodo()
+//        getOneTodo()
+        APITest.shared.getOneTodo(id: "someid") { result in
+            switch result {
+            case .success(let todo):
+                print("fetchedTodo: \(todo)")
+            case .failure(let error):
+                print("error : \(error)")
+            }
+        }
     }
     
     @objc func getAllBtnPressed() {
-        getAllTodos()
+//        getAllTodos()
+
+        
+        APITest.shared.getAllTodos { result in
+            switch result {
+                
+            case .success(let todos):
+                self.todos = todos
+                print("successfully fetched todos. \(todos)")
+            case .failure(let error):
+                print("error :\(error)")
+            }
+        }
+        
+        
     }
     
     @objc func postBtnPressed() {
         postOneTodo()
+//        APITest.shared.postOneTodo(title: "testing", onDate: "\(Date())")
     }
     
     
@@ -132,17 +155,40 @@ class APITestViewController: UIViewController {
     
     
     func postOneTodo() {
-        Service.shared.postTodoAF(onDate: "testOnDateSwift4", title: "testTitleSwift44")
+//        Service.shared.postTodoAF(onDate: "testOnDateSwift4", title: "testTitleSwift44")
+        
+//        Service.shared.createPost2(title: "test1", onDate: "test2") { error in
+//            guard error != nil else {
+//            print("err :\(error)")
+//                return
+//            }
+//        }
+//        Service.shared.requestPost { bool in
+//            print("result: \(bool)")
+//        }
+        
+        APITest.shared.postOneTodo(title: "test", onDate: "please be working..")
+        
+        
     }
 
     
     func deleteOneTodo() {
-        Service.shared.deleteOneTodo(id: "614b4fac5b7fb541813e79ec")
+        
+        print("deleteOneTodo triggered!")
+        
+        APITest.shared.deleteOneTodo(id: "6234064e1430668098b8c8a9") { error in
+            guard error == nil else { print(" error: \(error?.localizedDescription)")
+                return
+            }
+            print("successfully deleted!")
+        }
     }
     
     func deleteAllTodos() {
 
-        Service.shared.deleteTodosAF()
+//        Service.shared.deleteTodosAF()
+        APITest.shared.deleteAllTodos()
     }
     
     func patchOneTodo() {

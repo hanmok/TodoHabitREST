@@ -30,7 +30,11 @@ class Service: NSObject {
     // MARK: - POST REQUEST
     
     func postTodoAF(onDate: String, title: String) {
-        AF.request("\(baseUrl)/todos", method: .post, parameters: ["title": title, "onDate": onDate ], encoding: URLEncoding.httpBody, headers: HTTPHeaders.init()).responseJSON { response in
+        AF.request("\(baseUrl)/todos",
+                   method: .post,
+                   parameters: ["title": title, "onDate": onDate ],
+                   encoding: URLEncoding.httpBody,
+                   headers: HTTPHeaders.init()).responseJSON { response in
             print("addtodo, \(response)")
         }
     }
